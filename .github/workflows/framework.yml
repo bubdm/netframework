@@ -19,19 +19,16 @@ jobs:
         run: dir
         
       - name: Dir
-        run: dir\ConsoleApp1
-        
-      - name: Dir
         run: dir $Env:GITHUB_WORKSPACE
         
       - name: Dir
         run: dir $Env:GITHUB_WORKSPACE\ConsoleApp1
                 
       - name: Restore NuGet packages
-        run: nuget restore $Env:GITHUB_WORKSPACE\ConsoleApp1\framework.sln
+        run: nuget restore framework.sln
 
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v1
       
       - name: Build The Solution
-        run: msbuild $Env:GITHUB_WORKSPACE\ConsoleApp1\framework.csproj
+        run: msbuild framework.sln
