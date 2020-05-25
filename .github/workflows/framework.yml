@@ -25,7 +25,7 @@ jobs:
       run: cd $GITHUB_WORKSPACE
 
     - name: Navigate to Workspace
-      run: cd ConsoleApp1
+      run: cd ConsoleAp1
       
     - name: Create Build Directory
       run: mkdir _build
