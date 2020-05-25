@@ -25,10 +25,10 @@ jobs:
         run: dir $Env:GITHUB_WORKSPACE\ConsoleApp1
                 
       - name: Restore NuGet packages
-        run: nuget restore $Env:GITHUB_WORKSPACE\ConsoleApp1\ConsoleApp1.csproj
+        run: nuget restore $Env:GITHUB_WORKSPACE\ConsoleApp1\framework.sln
 
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v1
       
       - name: Build The Solution
-        run: msbuild $Env:GITHUB_WORKSPACE\ConsoleApp1\ConsoleApp1.csproj
+        run: msbuild $Env:GITHUB_WORKSPACE\ConsoleApp1\framework.csproj
