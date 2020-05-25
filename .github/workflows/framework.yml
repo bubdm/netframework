@@ -1,34 +1,23 @@
-name: Main Workflow
+name: .NET Framework
 
-on:
+on:  
   push:
     branches: master
-
+  pull_request:
+    branches: master
+        
 jobs:
-  build-msbuild:
-    name: Build msbuild
+  build:
+    name: Build .NET Framework
     runs-on: windows-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-        
+        uses: actions/checkout@v1        
       - name: Setup NuGet
-        uses: NuGet/setup-nuget@v1
-        
-      - name: Dir
-        run: dir
-        
-      - name: Dir
-        run: dir $Env:GITHUB_WORKSPACE
-        
-      - name: Dir
-        run: dir $Env:GITHUB_WORKSPACE\ConsoleApp1
-                
+        uses: NuGet/setup-nuget@v1.0.2        
       - name: Restore NuGet packages
-        run: nuget restore $Env:GITHUB_WORKSPACE\ConsoleApp1\framework.sln
-
+        run: nuget restore framework.sln
       - name: Setup MSBuild
-        uses: microsoft/setup-msbuild@v1
-      
+        uses: microsoft/setup-msbuild@v1      
       - name: Build The Solution
-        run: msbuild $Env:GITHUB_WORKSPACE\ConsoleApp1\framework.csproj
+        run: msbuild framework.sln
