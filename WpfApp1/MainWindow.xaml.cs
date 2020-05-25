@@ -24,5 +24,13 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
+
+
+        private void Press_OnClick(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Properties["Test"] = true;
+            if ((bool) Application.Current.Properties["Test"])
+                MessageBox.Show("Есть!");
+        }
     }
 }

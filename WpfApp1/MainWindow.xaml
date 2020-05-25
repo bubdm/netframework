@@ -8,20 +8,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="600">
     <Grid>
-        <StackPanel>
-            <Label Content="{x:Static corlib:Environment.OSVersion}"></Label>
-            <Label Content="{x:Type Button}"></Label>
-            <Label Content="{x:Type corlib:Int32}"></Label>
-            <ListBox Margin="10">
-                <ListBox.ItemsSource>
-                    <x:Array Type="corlib:String">
-                        <corlib:String>Первая строка</corlib:String>
-                        <corlib:String>Вторая</corlib:String>
-                        <corlib:String>Третья строка</corlib:String>
-                    </x:Array>
-                </ListBox.ItemsSource>
-            </ListBox>
-
-        </StackPanel>
+        <Button Name="Press" Content="Нажми меня" HorizontalAlignment="Left" Margin="10,10,10,10" VerticalAlignment="Top" Width="180" Height="30" Click="Press_OnClick"></Button>
+        <Calendar Name="MyCalendar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,50,10,10"></Calendar>
     </Grid>
 </Window>
