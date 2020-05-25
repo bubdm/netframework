@@ -1,2 +1,2 @@
 # framework
-Лаборатория .NET Framework Console &amp; WF &amp; WPF
+Эксперименты с .NET Framework Console &amp; WF &amp; WPF
