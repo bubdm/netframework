@@ -10,16 +10,16 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
         
       - name: Setup NuGet
         uses: NuGet/setup-nuget@v1
       
       - name: Restore NuGet packages
-        run: nuget restore framework.sln
+        run: nuget restore $Env:GITHUB_WORKSPACE\ConsoleApp1\ConsoleApp1.csproj
 
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v1
       
       - name: Build The Solution
-        run: msbuild framework.sln
+        run: msbuild $Env:GITHUB_WORKSPACE\ConsoleApp1\ConsoleApp1.csproj
