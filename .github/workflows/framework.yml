@@ -14,7 +14,16 @@ jobs:
         
       - name: Setup NuGet
         uses: NuGet/setup-nuget@v1
-      
+        
+      - name: Dir
+        run: dir
+        
+      - name: Dir
+        run: dir $Env:GITHUB_WORKSPACE
+        
+      - name: Dir
+        run: dir $Env:GITHUB_WORKSPACE\ConsoleApp1
+                
       - name: Restore NuGet packages
         run: nuget restore $Env:GITHUB_WORKSPACE\ConsoleApp1\ConsoleApp1.csproj
 
