@@ -8,8 +8,6 @@ on:
 
 jobs:
   build:
-    name: Initialize build on .NET Framework
-    
     runs-on: windows-latest
 
     steps:
@@ -21,21 +19,9 @@ jobs:
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1.0.2
       
-    - name: Navigate to Workspace
-      run: cd $GITHUB_WORKSPACE
+    - name: Restore NuGet packages
+      run: nuget restore framework.sln
 
-    - name: Navigate to Workspace
-      run: cd ConsoleAp1
-      
-    - name: Create Build Directory
-      run: mkdir _build
-      
-    - name: Restore Packages
-      run: nuget restore ConsoleApp1.sln
-
-    - name: Build Solution
+    - name: Build The Solution
       run: |
-        msbuild.exe ConsoleApp1.sln /nologo /nr:false /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True /p:platform="Any CPU" /p:configuration="Release" /p:PublishUrl="../_build"
-        
-    - name: Test
-      run: dotnet test --no-restore --verbosity normal
+        msbuild framework.sln /p:Configuration=Release
