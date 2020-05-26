@@ -7,8 +7,5 @@
         xmlns:corlib="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="600">
-    <Grid>
-        <Button Name="Press" Content="Нажми меня" HorizontalAlignment="Left" Margin="10,10,10,10" VerticalAlignment="Top" Width="180" Height="30" Click="Press_OnClick"></Button>
-        <Calendar Name="MyCalendar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,50,10,10"></Calendar>
-    </Grid>
+    <Button Name="ButtonOK" Height="100" Width="200" Content="OK"/>
 </Window>
