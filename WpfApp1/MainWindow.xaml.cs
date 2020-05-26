@@ -21,9 +21,6 @@ namespace WpfApp1
 
         }
 
-        private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Проба!");
-        }
+
     }
 }
