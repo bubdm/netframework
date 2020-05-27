@@ -6,8 +6,74 @@
         xmlns:local="clr-namespace:WpfApp1"
         xmlns:corlib="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="500">
-    <DockPanel Background="LightCyan">
+        Title="MainWindow" Height="500" Width="600" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        
+    </Window.Resources>
+    <TabControl x:Name="myTabControl" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <TabItem Header="Ink API">
+            <StackPanel Background="LightCyan">
+                <ToolBar x:Name="inkToolBar" Height="60" Background="LightGreen">
+                    <Border VerticalAlignment="Center">
+                        <WrapPanel>
+                            <RadioButton x:Name="inkRadio" Margin="5,10" Content="InkMode" IsChecked="True" Click="RadioButton_Click"/>
+                            <RadioButton x:Name="eraseRadio" Margin="5,10" Content="Erase Mode" Click="RadioButton_Click"/>
+                            <RadioButton x:Name="selectRadio" Margin="5,10" Content="SelectMode" Click="RadioButton_Click"/>
+                        </WrapPanel>
+                    </Border>
+                    <Separator/>
+                    <ComboBox x:Name="comboColors" Width="100" SelectionChanged="comboColors_SelectionChanged" Height="30">
+                        <StackPanel Orientation="Horizontal" Tag="Red">
+                            <Ellipse Fill="Red" Height="20" Width="20"/>
+                            <Label Content="Красный"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Tag="Green">
+                            <Ellipse Fill="Green" Height="20" Width="20"/>
+                            <Label Content="Зеленый"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Tag="Blue">
+                            <Ellipse Fill="Blue" Height="20" Width="20"/>
+                            <Label Content="Синий"/>
+                        </StackPanel>
+                    </ComboBox>
+                    <Separator/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" x:Name="buttonSave" Height="30" Width="70" Margin="2" Content="Сохранить" Click="buttonSave_Click"/>
+                        <Button Grid.Column="1" x:Name="buttonLoad" Height="30" Width="70" Margin="2" Content="Загрузить" Click="buttonLoad_Click"/>
+                        <Button Grid.Column="2" x:Name="buttonClear" Height="30" Width="70" Margin="2" Content="Очистить" Click="buttonClear_Click"/>
+                    </Grid>
+                    <Separator/>
+                </ToolBar>
+                <InkCanvas x:Name="myInkCanvas" Background="Azure" Height="370"/>
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="Data Binding">
+            <StackPanel DataContext="{Binding ElementName=myScrollBar}">
+                <Label Content="Переместить ползунок:"/>
+                <ScrollBar x:Name="myScrollBar" Orientation="Horizontal" Height="30" Minimum="1" Maximum="100" LargeChange="1" SmallChange="1"/>
+                <Label x:Name="labelThumb" Height="30" BorderBrush="Blue" BorderThickness="2"/>
+                <Button x:Name="buttonOK" Content="Нажми меня" Height="300"/>
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="DataGrid">
+            <StackPanel>
+                <ListView x:Name="listViewPerson" ItemsSource="{Binding List}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Имя" Width="100" DisplayMemberBinding="{Binding Name}"/>
+                            <GridViewColumn Header="Возраст" Width="80" DisplayMemberBinding="{Binding Age}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
 
-    </DockPanel>
+
+
+            </StackPanel>
+        </TabItem>
+    </TabControl>
 </Window>
