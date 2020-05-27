@@ -7,5 +7,5 @@
         xmlns:corlib="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="600">
-    <Button Name="ButtonOK" Height="100" Width="200" Content="OK"/>
+    <Button Content="Button" Width="176" Height="92"/>
 </Window>
