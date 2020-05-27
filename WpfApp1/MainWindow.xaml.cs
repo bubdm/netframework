@@ -42,6 +42,12 @@ namespace WpfApp1
             public string Name { get; set; }
             public int Age { get; set; }
         };
+        public List<Person> List = new List<Person>
+        {
+            new Person {Name = "Петя", Age = 23},
+            new Person {Name = "Надя", Age = 18},
+            new Person {Name = "Дима", Age = 20},
+        };
         public MainWindow()
         {
             InitializeComponent();
