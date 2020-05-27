@@ -7,8 +7,18 @@
         xmlns:corlib="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="600">
-    <Grid>
-
-
-    </Grid>
+    <DockPanel>
+        <ToolBar DockPanel.Dock="Top" Name="mainToolBar" Height="60">
+            <RadioButton Name="circleOption" GroupName="shapeSelection" Click="CircleOption_OnClick">
+                <Ellipse Fill="Green" Height="40" Width="40"/>
+            </RadioButton>
+            <RadioButton Name="rectOption" GroupName="shapeSelection" Click="RectOption_OnClick">
+                <Rectangle Fill="Red" Height="40" Width="40" RadiusX="10" RadiusY="10"/>
+            </RadioButton>
+            <RadioButton Name="lineOption" GroupName="shapeSelection" Click="LineOption_OnClick">
+                <Line Height="40" Width="40" Stroke="Blue" StrokeThickness="10" X1="5" Y1="5" X2="35" Y2="35" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+            </RadioButton>
+        </ToolBar>
+        <Canvas Background="LightYellow" Name="canvasDrawingArea" MouseDown="CanvasDrawingArea_OnMouseDown" MouseRightButtonDown="CanvasDrawingArea_OnMouseRightButtonDown"/>
+    </DockPanel>
 </Window>
