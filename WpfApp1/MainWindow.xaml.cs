@@ -27,15 +27,44 @@ namespace WpfApp1
             return value; //однонаправленная привязка
         }
     }
-    
+
+
+
+
+
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        public class Person
+        {
+            public string Name { get; set; }
+            public int Age { get; set; }
+        };
         public MainWindow()
         {
             InitializeComponent();
+
+            List<Person> list = new List<Person>
+            {
+                new Person {Name = "Петя", Age = 23},
+                new Person {Name = "Надя", Age = 18},
+                new Person {Name = "Дима", Age = 20},
+            };
+            listViewPerson.ItemsSource = list;
+
+            //ListViewMy.ItemsSource = list;
+            //List<Employee> items = new List<Employee>
+            //{
+            //    new Employee {Name="Петя",Age=42,Salary=25000},
+            //    new Employee {Name="Толя",Age=12,Salary=9000},
+            //    new Employee {Name="Боря",Age=22,Salary=11000},
+            //};
+            
+            
+            
+            
             myInkCanvas.EditingMode = InkCanvasEditingMode.Ink;
             inkRadio.IsChecked = true;
             this.comboColors.SelectedIndex = 0;

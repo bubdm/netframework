@@ -7,6 +7,9 @@
         xmlns:corlib="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="600" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        
+    </Window.Resources>
     <TabControl x:Name="myTabControl" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <TabItem Header="Ink API">
             <StackPanel Background="LightCyan">
@@ -58,7 +61,19 @@
             </StackPanel>
         </TabItem>
         <TabItem Header="DataGrid">
-            <Grid Background="Azure"/>
+            <StackPanel>
+                <ListView x:Name="listViewPerson" ItemsSource="{Binding List}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Имя" Width="100" DisplayMemberBinding="{Binding Name}"/>
+                            <GridViewColumn Header="Возраст" Width="80" DisplayMemberBinding="{Binding Age}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+
+
+            </StackPanel>
         </TabItem>
     </TabControl>
 </Window>
