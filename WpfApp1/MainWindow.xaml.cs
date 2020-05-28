@@ -110,18 +110,5 @@ namespace WpfApp1
                 canvasDrawingArea.LayoutTransform = null;
             }
         }
-
-        private void ButtonSkew_OnClick(object sender, RoutedEventArgs e)
-        {
-            
-        }
-        private void ButtonRotate_OnClick(object sender, RoutedEventArgs e)
-        {
-            
-        }
-        private void ButtonFlip_OnClick(object sender, RoutedEventArgs e)
-        {
-            
-        }
     }
 }
