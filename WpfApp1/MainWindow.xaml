@@ -28,6 +28,17 @@
                 </Line>
             </RadioButton>
         </ToolBar>
-        <Canvas Background="LightYellow" Name="canvasDrawingArea" MouseDown="CanvasDrawingArea_OnMouseDown" MouseRightButtonDown="CanvasDrawingArea_OnMouseRightButtonDown"/>
+        <Canvas Background="LightYellow" Name="canvasDrawingArea" MouseDown="CanvasDrawingArea_OnMouseDown" MouseRightButtonDown="CanvasDrawingArea_OnMouseRightButtonDown">
+            <Rectangle Canvas.Top="20" Height="100" Width="40" Fill="Red">
+                <Rectangle.LayoutTransform>
+                    <RotateTransform Angle="45"/>
+                </Rectangle.LayoutTransform>
+            </Rectangle>
+            <Ellipse Canvas.Left="150" Canvas.Top="20" Fill="Blue" Width="5" Height="5">
+                <Ellipse.LayoutTransform>
+                    <ScaleTransform ScaleX="20" ScaleY="20"/>
+                </Ellipse.LayoutTransform>
+            </Ellipse>
+        </Canvas>
     </DockPanel>
 </Window>
