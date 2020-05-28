@@ -77,6 +77,12 @@ namespace WpfApp1
                 default:
                     return;
             }
+
+            if (true == flipCanvas.IsChecked) //если повернут холст, то повернуть устанавливаемую фигуру
+            {
+                RotateTransform rotate = new RotateTransform(-180);
+                shape.RenderTransform = rotate;
+            }
             Canvas.SetLeft(shape, e.GetPosition(canvasDrawingArea).X - 20);
             Canvas.SetTop(shape, e.GetPosition(canvasDrawingArea).Y - 20);
             canvasDrawingArea.Children.Add(shape);
@@ -89,6 +95,19 @@ namespace WpfApp1
             if (result != null)
             {
                 canvasDrawingArea.Children.Remove(result.VisualHit as Shape);
+            }
+        }
+
+        private void FlipCanvas_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (true == flipCanvas.IsChecked)
+            {
+                RotateTransform rotate = new RotateTransform(-180);
+                canvasDrawingArea.LayoutTransform = rotate;
+            }
+            else
+            {
+                canvasDrawingArea.LayoutTransform = null;
             }
         }
     }
