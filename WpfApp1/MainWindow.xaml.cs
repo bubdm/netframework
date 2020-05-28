@@ -52,8 +52,14 @@ namespace WpfApp1
                 case SelectShape.Circle:
                     shape = new Ellipse
                     {
-                        Fill = Brushes.Green, Height = 40, Width = 40,
+                        Height = 40, Width = 40,
                     };
+                    //кисть в коде
+                    RadialGradientBrush brush = new RadialGradientBrush();
+                    brush.GradientStops.Add(new GradientStop((Color)ColorConverter.ConvertFromString("#FFFFF300"), 0));
+                    brush.GradientStops.Add(new GradientStop((Color)ColorConverter.ConvertFromString("#FF246300"),0.504));
+                    brush.GradientStops.Add(new GradientStop((Color)ColorConverter.ConvertFromString("#FFB7FFC4"),1));
+                    shape.Fill = brush;
                     break;
                 case SelectShape.Rectangle:
                     shape = new Rectangle
@@ -71,8 +77,8 @@ namespace WpfApp1
                 default:
                     return;
             }
-            Canvas.SetLeft(shape, e.GetPosition(canvasDrawingArea).X);
-            Canvas.SetTop(shape, e.GetPosition(canvasDrawingArea).Y);
+            Canvas.SetLeft(shape, e.GetPosition(canvasDrawingArea).X - 20);
+            Canvas.SetTop(shape, e.GetPosition(canvasDrawingArea).Y - 20);
             canvasDrawingArea.Children.Add(shape);
         }
 
