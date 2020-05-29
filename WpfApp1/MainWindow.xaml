@@ -17,5 +17,23 @@
             <Button x:Name="buttonRotate" Content="Поворот" Click="ButtonRotate_OnClick"/>
             <Button x:Name="buttonFlip" Content="Кувфрок" Click="ButtonFlip_OnClick"/>
         </StackPanel>
+        <Canvas x:Name="myCanvas" Grid.Row="0" Grid.Column="1">
+            <Ellipse HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Width="80" Stroke="Black" Canvas.Left="20" Canvas.Top="30">
+                <Ellipse.Fill>
+                    <RadialGradientBrush>
+                        <GradientStop Color="BlueViolet" Offset="0"/>
+                        <GradientStop Color="Aqua" Offset="1"/>
+                    </RadialGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Ellipse HorizontalAlignment="Left" VerticalAlignment="Top" Height="100" Width="100" Stroke="Black" Canvas.Left="120" Canvas.Top="50">
+                <Ellipse.Fill>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="Aqua" Offset="0"/>
+                        <GradientStop Color="Chocolate" Offset="1"/>
+                    </LinearGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+        </Canvas>
     </Grid>
 </Window>
