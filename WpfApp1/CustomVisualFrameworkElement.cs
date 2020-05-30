@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Media;
 
@@ -14,6 +15,30 @@ namespace WpfApp1
                 AddRect(),
                 AddCircle(),
             };
+            //дополнительно реагирование на нажатие мышки
+            this.MouseDown += CustVisualFrameworkElement_MouseDown;
+        }
+        private void CustVisualFrameworkElement_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)//реагирование на нажатия мыши
+        {
+            Point point = e.GetPosition((UIElement)sender); //найти точку где произведен щелчок
+            VisualTreeHelper.HitTest(this, null, new HitTestResultCallback(myCallback), new PointHitTestParameters(point)); //просмотреть дерево на щелчки и вызвать делегат если был щелчок
+        }
+        public HitTestResultBehavior myCallback(HitTestResult result) //обработка при определении что фигура нажата
+        {
+            //при щелчке на визуальном элементе переключится между скошенным и нормальным состоянием
+            if (result.VisualHit.GetType() == typeof(DrawingVisual))
+            {
+                if (((DrawingVisual)result.VisualHit).Transform == null)
+                {
+                    ((DrawingVisual)result.VisualHit).Transform = new SkewTransform(5,5);
+                }
+            }
+            else
+            {
+                ((DrawingVisual) result.VisualHit).Transform = null;
+            }
+            //прекращение поиска в визуальном делеве
+            return HitTestResultBehavior.Stop;
         }
         private Visual AddCircle()
         {
