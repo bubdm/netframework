@@ -6,11 +6,10 @@
         xmlns:local="clr-namespace:WpfApp1"
         xmlns:corlib="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="600">
-    <Grid>
-
-
-
-
-    </Grid>
+        Title="MainWindow" Height="400" Width="600"
+        Loaded="MainWindow_OnLoaded" WindowStartupLocation="CenterScreen">
+    <StackPanel Background="AliceBlue" Name="myPanel">
+        <Image Name="myImage" Height="80"/>
+        <local:CustVisualFrameworkElement/>
+    </StackPanel>
 </Window>
