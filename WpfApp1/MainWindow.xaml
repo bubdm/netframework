@@ -9,6 +9,6 @@
         Title="MainWindow" Height="400" Width="600" WindowStartupLocation="CenterScreen">
     <StackPanel>
         <Button x:Name="buttonGreen" Content="Зеленая измененная кнопка" Style="{StaticResource BigGrowingButton}"/>
-        <TextBox x:Name="labelInfo" Text="12345"/>
+        <TextBox x:Name="labelInfo" Text="1234567"/>
     </StackPanel>
 </Window>
