@@ -6,8 +6,14 @@
         xmlns:local="clr-namespace:WpfApp1"
         xmlns:corlib="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="600" WindowStartupLocation="CenterScreen">
-    <Grid>
-
-    </Grid>
+        Loaded="MainWindow_OnLoaded" Title="MainWindow" Height="400" Width="600" WindowStartupLocation="CenterScreen">
+    <DockPanel LastChildFill="True">
+        <ToolBar Height="60" x:Name="picturePickerToolbar" DockPanel.Dock="Top">
+            <Button x:Name="buttonPreviousImage" Height="30" Width="100" BorderBrush="Black" Margin="5" Content="Предидущее" Click="ButtonPreviousImage_OnClick"/>
+            <Button x:Name="buttonNextImage" Height="30" Width="100" BorderBrush="Black" Margin="5" Content="Следущее" Click="ButtonNextImage_OnClick"/>
+        </ToolBar>
+        <Border BorderThickness="2" BorderBrush="LightGreen">
+            <Image x:Name="imageHolder" Stretch="Fill"/>
+        </Border>
+    </DockPanel>
 </Window>
