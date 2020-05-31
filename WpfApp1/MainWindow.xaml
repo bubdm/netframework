@@ -7,9 +7,7 @@
         xmlns:corlib="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="600" WindowStartupLocation="CenterScreen">
-    <Window.Resources>
-    </Window.Resources>
     <StackPanel Orientation="Horizontal">
-
+        <Button x:Name="buttonSpinner" Height="50" Width="100" Content="Спиннер" Margin="30" MouseEnter="ButtonSpinner_OnMouseEnter" Click="ButtonSpinner_OnClick"/>
     </StackPanel>
 </Window>
