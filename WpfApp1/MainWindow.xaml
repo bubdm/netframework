@@ -8,6 +8,24 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="600" WindowStartupLocation="CenterScreen">
     <StackPanel Orientation="Horizontal">
-        <Button x:Name="buttonSpinner" Height="50" Width="100" Content="Спиннер" Margin="30" MouseEnter="ButtonSpinner_OnMouseEnter" Click="ButtonSpinner_OnClick"/>
+        <Button Name="myButton" Height="40" Width="150" FontSize="18" FontFamily="Verdana">
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Button.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <StringAnimationUsingKeyFrames RepeatBehavior="Forever" Storyboard.TargetProperty="Content" Duration="0:0:5">
+                                <DiscreteStringKeyFrame Value="" KeyTime="0:0:0"/>
+                                <DiscreteStringKeyFrame Value="O" KeyTime="0:0:1"/>
+                                <DiscreteStringKeyFrame Value="OK" KeyTime="0:0:2"/>
+                                <DiscreteStringKeyFrame Value="OK!" KeyTime="0:0:3"/>
+                            </StringAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+
+
+
     </StackPanel>
 </Window>
