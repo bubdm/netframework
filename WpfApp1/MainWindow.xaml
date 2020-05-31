@@ -10,7 +10,6 @@
     <Window.Resources>
     </Window.Resources>
     <StackPanel Orientation="Horizontal">
-        <Button Margin="10" Height="200" Width="200" Content="OK" FontSize="20" Background="{StaticResource myBrush}" Click="ButtonOk_OnClick"/>
-        <Button Margin="10" Height="200" Width="200" Content="Отмена" FontSize="20" Background="{DynamicResource myBrush}" Click="ButtonCancel_OnClick"/>
+
     </StackPanel>
 </Window>

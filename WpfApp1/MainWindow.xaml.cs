@@ -11,18 +11,11 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
+
+            
         }
-        private void ButtonOk_OnClick(object sender, RoutedEventArgs e)
-        {
-            //var brush = (RadialGradientBrush)Resources["myBrush"];
-            var brush = (RadialGradientBrush)TryFindResource("myBrush");
-            if (brush == null)
-                return;
-            brush.GradientStops[0] = new GradientStop(Colors.Black, 0.5); //это сработает
-        }
-        private void ButtonCancel_OnClick(object sender, RoutedEventArgs e)
-        {
-            Resources["myBrush"] = new SolidColorBrush(Colors.Green); //а это не сработает
-        }
+
+
+
     }
 }
