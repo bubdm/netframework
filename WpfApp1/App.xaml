@@ -5,8 +5,53 @@
              StartupUri="MainWindow.xaml"
              Startup="App_OnStartup" Exit="App_OnExit">
     <Application.Resources>
-        <ResourceDictionary>
-
-        </ResourceDictionary>
+        <Style x:Key="BigGreenButton" TargetType="Button">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Height" Value="100"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Background" Value="DarkGreen"/>
+            <Setter Property="Foreground" Value="AliceBlue"/>
+        </Style>
+        <Style x:Key="BigGrowingButton" TargetType="Button">
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="200"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard TargetProperty="Height">
+                                <DoubleAnimation From="40" To="200" Duration="0:0:5" AutoReverse="True"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="BigGreenRotate" TargetType="Button"
+               BasedOn="{StaticResource BigGreenButton}">
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <RotateTransform Angle="20"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="Red"/>
+            <Setter Property="FontStyle" Value="Italic"/>
+            <Setter Property="Background" Value="AliceBlue"/>
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsFocused" Value="True"/>
+                        <Condition Property="IsMouseOver" Value="True"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="Background" Value="Yellow"/>
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
     </Application.Resources>
 </Application>
