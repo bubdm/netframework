@@ -7,8 +7,11 @@
         xmlns:corlib="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="600" WindowStartupLocation="CenterScreen">
-    <StackPanel>
-        <Button x:Name="buttonGreen" Content="Зеленая измененная кнопка" Style="{StaticResource BigGrowingButton}"/>
-        <TextBox x:Name="labelInfo" Text="123"/>
-    </StackPanel>
+    <DockPanel>
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0,0,0,50">
+            <Label Content="Установка стиля для кнопки" Height="30"/>
+            <ListBox x:Name="listStyles" Height="70" Width="200" Background="LightCyan" SelectionChanged="ListStyles_OnSelectionChanged"></ListBox>
+        </StackPanel>
+        <Button x:Name="buttonStyle" Height="40" Width="100" Content="OK!"/>
+    </DockPanel>
 </Window>

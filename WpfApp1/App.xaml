@@ -5,6 +5,16 @@
              StartupUri="MainWindow.xaml"
              Startup="App_OnStartup" Exit="App_OnExit">
     <Application.Resources>
+        <Style x:Key="ButtonStyle1" TargetType="Button">
+            <Setter Property="Background" Value="Aqua"/>
+        </Style>
+        <Style x:Key="ButtonStyle2" TargetType="Button">
+            <Setter Property="Background" Value="Red"/>
+        </Style>
+        <Style x:Key="ButtonStyle3" TargetType="Button">
+            <Setter Property="Background" Value="LightGreen"/>
+        </Style>
+        
         <Style x:Key="BigGreenButton" TargetType="Button">
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="Height" Value="100"/>

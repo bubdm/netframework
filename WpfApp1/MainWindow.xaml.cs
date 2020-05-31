@@ -15,10 +15,16 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-
-            
+            listStyles.Items.Add("ButtonStyle1");
+            listStyles.Items.Add("ButtonStyle2");
+            listStyles.Items.Add("ButtonStyle3");
         }
-
-
+        private void ListStyles_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var currentStyle = (Style) TryFindResource(listStyles.SelectedValue);
+            if (currentStyle == null)
+                return;
+            buttonStyle.Style = currentStyle;
+        }
     }
 }
