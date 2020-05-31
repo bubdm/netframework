@@ -5,5 +5,10 @@
              StartupUri="MainWindow.xaml"
              Startup="App_OnStartup" Exit="App_OnExit">
     <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source=""/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
