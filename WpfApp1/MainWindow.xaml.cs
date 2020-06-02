@@ -22,5 +22,14 @@ namespace WpfApp1
 
         }
 
+        private void ButtonMy_OnClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("авыаыв");
+        }
+
+        private void ButtonBestMy_OnClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("dsdf");
+        }
     }
 }
