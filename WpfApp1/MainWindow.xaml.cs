@@ -26,13 +26,15 @@ namespace WpfApp1
                 Make = "УАЗ",
                 Color = "Белый",
                 PetName = "Буханка",
+                IsChanged = false,
             });
             cars.Add(new Inventory
             {
                 CarId = 2,
                 Make = "ЗАЗ",
                 Color = "Коричневый",
-                PetName = "Большая"
+                PetName = "Большая",
+                IsChanged = false,
             });
             comboBoxCars.ItemsSource = cars;
         }

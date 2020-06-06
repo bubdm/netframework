@@ -55,12 +55,29 @@ namespace WpfApp1.Models
                 OnPropertyChanged(nameof(PetName));
             }
         }
-
+        
+        //флаг изменения модели
+        private bool isChanged;
+        public bool IsChanged
+        {
+            get => isChanged;
+            set
+            {
+                if (value == isChanged) return;
+                isChanged = value;
+                OnPropertyChanged(nameof(IsChanged));
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary> Вспомогательный метод индицирования события изменения свойства </summary>
         protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
+            if (propertyName != nameof(IsChanged))
+            {
+                IsChanged = true;
+            }
             //индицирование события со строкой, указывающей свойство, которое было изменено и нуждается в обновлении
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             //обновление всех привязанных свойств объекта
