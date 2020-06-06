@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WpfApp1.Models
 {
-    class Inventory : INotifyPropertyChanged
+    public partial class Inventory : INotifyPropertyChanged
     {
         public bool IsChanged { get; set; }
         public int CarId { get; set; }
@@ -17,7 +17,7 @@ namespace WpfApp1.Models
         public string PetName { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
     }
-    //class Inventory : INotifyPropertyChanged //наблюдаемая модель
+    //public partial class Inventory : INotifyPropertyChanged //наблюдаемая модель
     //{
     //    private int carId;
     //    public int CarId
@@ -27,7 +27,6 @@ namespace WpfApp1.Models
     //        {
     //            if (value == carId) return;
     //            carId = value;
-    //            //передача названия свойства значение которого изменилось
     //            OnPropertyChanged(nameof(CarId));
     //        }
     //    }
@@ -39,6 +38,7 @@ namespace WpfApp1.Models
     //        {
     //            if (value == make) return;
     //            make = value;
+    //            //передача названия свойства значение которого изменилось
     //            OnPropertyChanged(nameof(Make));
     //        }
     //    }
@@ -64,7 +64,7 @@ namespace WpfApp1.Models
     //            OnPropertyChanged(nameof(PetName));
     //        }
     //    }
-        
+
     //    //флаг изменения модели
     //    private bool isChanged;
     //    public bool IsChanged
