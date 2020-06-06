@@ -43,6 +43,7 @@
     </Reference>
     <Reference Include="ReachFramework" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -76,6 +77,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\EntityBase.cs" />
     <Compile Include="Models\Inventory.cs" />
     <Compile Include="Models\InventoryPartial.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
