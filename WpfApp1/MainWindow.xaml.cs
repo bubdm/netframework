@@ -42,6 +42,8 @@ namespace WpfApp1
         private ICommand changeColorCommand = null;
         public ICommand ChangeColorCommand => changeColorCommand ?? (changeColorCommand = new ChangeColorCommand());
 
+        private ICommand addCarCommand = null;
+        public ICommand AddCarCommand => addCarCommand ?? (addCarCommand = new AddCarCommand());
 
     }
 }
