@@ -45,5 +45,12 @@ namespace WpfApp1
         private ICommand addCarCommand = null;
         public ICommand AddCarCommand => addCarCommand ?? (addCarCommand = new AddCarCommand());
 
+        private RelayCommand<Inventory> deleteCarCommand = null;
+        public RelayCommand<Inventory> DeleteCarCommand => deleteCarCommand ?? (deleteCarCommand = new RelayCommand<Inventory>(DeleteCar, CanDeleteCar));
+        private bool CanDeleteCar(Inventory car) => car != null;
+        private void DeleteCar(Inventory car)
+        {
+            this.cars.Remove(car);
+        }
     }
 }

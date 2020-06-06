@@ -44,6 +44,9 @@
                 <Button x:Name="buttonChangeColor" Content="Изменить цвет" Margin="5" Padding="4, 2"
                         Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}, Path=ChangeColorCommand}"
                         CommandParameter="{Binding ElementName=comboBoxCars, Path=SelectedItem}"/>
+                <Button x:Name="buttonDeleteCar" Content="Удалить авто" Margin="5" Padding="4, 2"
+                        Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}, Path=DeleteCarCommand}"
+                        CommandParameter="{Binding ElementName=comboBoxCars, Path=SelectedItem}"/>
             </StackPanel>
         </Grid>
     </Grid>

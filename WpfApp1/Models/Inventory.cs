@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WpfApp1.Models
 {
-    class Inventory : INotifyPropertyChanged
+    public class Inventory : INotifyPropertyChanged
     {
         private int carId;
         public int CarId
