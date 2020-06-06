@@ -4,8 +4,11 @@ using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Documents;
+using System.Windows.Input;
 using System.Windows.Xps.Packaging;
 using Microsoft.Win32;
+using WpfApp1.Commands;
+using WpfApp1.Models;
 
 namespace WpfApp1
 {
@@ -14,13 +17,31 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        readonly IList<Inventory> cars = new ObservableCollection<Inventory>(); //
         
         public MainWindow()
         {
             InitializeComponent();
-
+            cars.Add(new Inventory
+            {
+                CarId = 1,
+                Make = "УАЗ",
+                Color = "Белый",
+                PetName = "Буханка",
+            });
+            cars.Add(new Inventory
+            {
+                CarId = 2,
+                Make = "ЗАЗ",
+                Color = "Коричневый",
+                PetName = "Большая"
+            });
+            comboBoxCars.ItemsSource = cars;
         }
+        //поддерживающее поле команды
+        private ICommand changeColorCommand = null;
+        public ICommand ChangeColorCommand => changeColorCommand ?? (changeColorCommand = new ChangeColorCommand());
+
 
     }
 }
