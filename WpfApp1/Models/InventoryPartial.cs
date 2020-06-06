@@ -20,6 +20,7 @@ namespace WpfApp1.Models
                 switch (columnName)
                 {
                     case nameof(CarId):
+                        AddErrors(nameof(CarId), GetErrorsFromAnnotations(nameof(CarId),CarId));
                         break;
                     case nameof(Make):
                         hasError = CheckMakeAndColor();
@@ -33,6 +34,7 @@ namespace WpfApp1.Models
                             ClearErrors(nameof(Make));
                             ClearErrors(nameof(Color));
                         }
+                        AddErrors(nameof(Make), GetErrorsFromAnnotations(nameof(Make), Make));
                         break;
                     case nameof(Color):
                         hasError = CheckMakeAndColor();
@@ -41,9 +43,36 @@ namespace WpfApp1.Models
                             ClearErrors(nameof(Make));
                             ClearErrors(nameof(Color));
                         }
+                        AddErrors(nameof(Color), GetErrorsFromAnnotations(nameof(Color), Color));
                         break;
                     case nameof(PetName):
+                        AddErrors(nameof(PetName), GetErrorsFromAnnotations(nameof(PetName), PetName));
                         break;
+                        //case nameof(CarId):
+                        //    break;
+                        //case nameof(Make):
+                        //    hasError = CheckMakeAndColor();
+                        //    if (Make == "Чайка")
+                        //    {
+                        //        AddError(nameof(Make), "Слишком старый автомобиль");
+                        //        hasError = true;
+                        //    }
+                        //    if (!hasError)
+                        //    {
+                        //        ClearErrors(nameof(Make));
+                        //        ClearErrors(nameof(Color));
+                        //    }
+                        //    break;
+                        //case nameof(Color):
+                        //    hasError = CheckMakeAndColor();
+                        //    if (!hasError)
+                        //    {
+                        //        ClearErrors(nameof(Make));
+                        //        ClearErrors(nameof(Color));
+                        //    }
+                        //    break;
+                        //case nameof(PetName):
+                        //    break;
                 }
                 return string.Empty;
             }

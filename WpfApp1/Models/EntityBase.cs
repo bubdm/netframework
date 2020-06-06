@@ -5,11 +5,22 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace WpfApp1.Models
 {
     public class EntityBase : INotifyDataErrorInfo
     {
+        protected string[] GetErrorsFromAnnotations<T>(string propertyName, T value)
+        {
+            var results = new List<ValidationResult>();
+            var vc = new ValidationContext(this, null, null) {MemberName = propertyName};
+            var isValid = Validator.TryValidateProperty(value, vc, results);
+            return (isValid) ? null : Array.ConvertAll(results.ToArray(), o => o.ErrorMessage);
+        }
+
+        
         //хранение всех сведений о ошибках, сгруппированные по именам свойств
         protected readonly Dictionary<string, List<string>> errors = new Dictionary<string, List<string>>();
         //возвращает любые ошибки в словаре, когда в параметре пустая сторока или null, если имя свойства - то ошибки этого свойства
@@ -36,6 +47,8 @@ namespace WpfApp1.Models
         }
         protected void AddErrors(string propertyName, IList<string> errors)
         {
+            if (errors == null || errors?.Count == 0) 
+                return;
             var changed = false;
             if (!this.errors.ContainsKey(propertyName))
             {
