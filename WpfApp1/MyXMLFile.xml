@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<persons>
+  <person>
+    <id>1</id>
+    <fam>Иванов</fam>
+    <name>Иван</name>
+    <age>20</age>
+  </person>
+  <person>
+    <id>2</id>
+    <fam>Петров</fam>
+    <name>Петя</name>
+    <age>18</age>
+  </person>
+  <person>
+    <id>3</id>
+    <fam>Генадиев</fam>
+    <name>Гена</name>
+    <age>30</age>
+  </person>
+</persons>
