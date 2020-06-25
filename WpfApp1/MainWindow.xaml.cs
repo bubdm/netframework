@@ -14,13 +14,24 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
-
-        
+        private MyClass myClass;
         public MainWindow()
         {
             InitializeComponent();
-
+            myClass = new MyClass();
+            GridMain.DataContext = myClass; //установка контекста
         }
-
+        private void ButtonEdit_OnClick(object sender, RoutedEventArgs e)
+        {
+            myClass.Flag = !myClass.Flag;
+        }
+        private void ButtonAdd_OnClick(object sender, RoutedEventArgs e)
+        {
+            myClass.Ints.Add(99);
+        }
+        private void ButtonEditInts_OnClick(object sender, RoutedEventArgs e)
+        {
+            myClass.Ints[0]++;
+        }
     }
 }

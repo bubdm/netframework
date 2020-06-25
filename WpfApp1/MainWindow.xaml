@@ -7,70 +7,16 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="700" WindowStartupLocation="CenterScreen">
-    <Window.Resources>
-        <sys:String x:Key="strHello">Привет!</sys:String>
-        <x:Array x:Key="ComboBoxItems" Type="sys:String">
-            <sys:String>Элемент1</sys:String>
-            <sys:String>Эл2</sys:String>
-            <sys:String>Эл3</sys:String>
-            <sys:String>Эл4</sys:String>
-            <sys:String>Эл5</sys:String>
-            <sys:String>Эл6</sys:String>
-            <sys:String>Эл7</sys:String>
-        </x:Array>
-        <Style TargetType="TextBlock" x:Key="tbStyle">
-            <Setter Property="FontSize" Value="30"/>
-        </Style>
-        <Style TargetType="TextBlock" x:Key="tbColor" BasedOn="{StaticResource tbStyle}">
-            <Setter Property="Foreground" Value="Red"/>
-        </Style>
-
-
-    </Window.Resources>
-
-    <Grid>
-        <Button x:Name="ButtonMy" HorizontalAlignment="Left" Margin="200,200,0,0" VerticalAlignment="Top" Width="200" ToolTip="Нажмите">
-            <StackPanel>
-                <TextBlock Text="{StaticResource strHello}" Style="{StaticResource tbStyle}"/>
-                <TextBlock Text="{StaticResource strHello}" Style="{StaticResource tbColor}"/>
-            </StackPanel>
-        </Button>
-        <Label Content="{StaticResource strHello}" Margin="229,310,163,0" VerticalAlignment="Top" Width="200"/>
-
-        <ComboBox ItemsSource="{StaticResource ComboBoxItems}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="459,178,0,0" Width="111" ToolTip="Выберите">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Элемент: "/>
-                        <TextBlock Text="{Binding}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
-
-        <GroupBox Margin="32,23,0,0" Width="200" Height="100" VerticalAlignment="Top" HorizontalAlignment="Left">
-            <ScrollViewer>
-                <ItemsControl ItemsSource="{StaticResource ComboBoxItems}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Эл: "/>
-                                <TextBlock Text="{Binding}"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </ScrollViewer>
-
-        </GroupBox>
-        <ListView ItemsSource="{StaticResource ComboBoxItems}" HorizontalAlignment="Left" Height="150" VerticalAlignment="Top" Width="200" Margin="429,231,-37,-12">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="One"/>
-                    <GridViewColumn Header="Two"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-
+    <Grid x:Name="GridMain">
+        <StackPanel>
+            <ListBox ItemsSource="{Binding Ints}" Height="200">
+            </ListBox>
+            <CheckBox Content="Выбери меня" IsChecked="{Binding Flag}"/>
+            <RadioButton Content="Выбери меня" IsChecked="{Binding Flag}"/>
+            <TextBlock Text="{Binding Flag}"/>
+            <Button x:Name="ButtonEdit" Content="Изменить" Click="ButtonEdit_OnClick"/>
+            <Button x:Name="ButtonAdd" Content="Добавить" Click="ButtonAdd_OnClick"/>
+            <Button x:Name="ButtonEditInts" Content="Изменить массив" Click="ButtonEditInts_OnClick"/>
+        </StackPanel>
     </Grid>
 </Window>
