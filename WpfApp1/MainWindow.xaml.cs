@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Configuration;
 using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
@@ -23,7 +24,6 @@ namespace WpfApp1
         }
         private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
         {
-
         }
 
     }
