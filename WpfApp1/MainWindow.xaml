@@ -8,22 +8,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="600" WindowStartupLocation="CenterScreen" Loaded="MainWindow_OnLoaded">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="5*"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <DataGrid x:Name="DataGridDataBase" AutoGenerateColumns="False" EnableRowVirtualization="True" IsReadOnly="True" 
-                  ItemsSource="{Binding}">
-            <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Path=id}" Header="Id" Width="*"/>
-                <DataGridTextColumn Binding="{Binding Path=fam}" Header="Фамилия" Width="*"/>
-                <DataGridTextColumn Binding="{Binding Path=name}" Header="Имя" Width="*"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <WrapPanel Grid.Row="1">
-            <Button Content="Добавить" Margin="5" Click="ButtonAdd_OnClick"/>
-            <Button Content="Редактировать" Margin="5" Click="ButtonEdit_OnClick"/>
-            <Button Content="Удалить" Margin="5" Click="ButtonDelete_OnClick"/>
-        </WrapPanel>
+
     </Grid>
 </Window>
