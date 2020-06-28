@@ -8,15 +8,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="700" WindowStartupLocation="CenterScreen">
     <Grid x:Name="GridMain">
-        <StackPanel>
-            <ListBox ItemsSource="{Binding Ints}" Height="200">
-            </ListBox>
-            <CheckBox Content="Выбери меня" IsChecked="{Binding Flag}"/>
-            <RadioButton Content="Выбери меня" IsChecked="{Binding Flag}"/>
-            <TextBlock Text="{Binding Flag}"/>
-            <Button x:Name="ButtonEdit" Content="Изменить" Click="ButtonEdit_OnClick"/>
-            <Button x:Name="ButtonAdd" Content="Добавить" Click="ButtonAdd_OnClick"/>
-            <Button x:Name="ButtonEditInts" Content="Изменить массив" Click="ButtonEditInts_OnClick"/>
-        </StackPanel>
+
+
+
     </Grid>
 </Window>
