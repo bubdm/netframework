@@ -24,6 +24,8 @@ namespace WpfApp1
         }
         private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
         {
+            DbProviderFactory sqlFactory = DbProviderFactories.GetFactory("System.Data.SqlClient");
+            
         }
 
     }
