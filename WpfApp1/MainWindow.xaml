@@ -7,7 +7,8 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="600" WindowStartupLocation="CenterScreen" Loaded="MainWindow_OnLoaded">
-    <Grid>
+    <Grid >
+
         <ListView x:Name="ListViewTest">
 
         </ListView>
