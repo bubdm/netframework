@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp1", "WpfApp1\WpfApp1.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoLotDAL", "AutoLotDAL\AutoLotDAL.csproj", "{0E926109-FE0C-4C07-991A-D1EA301DB7B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.csproj", "{8EA7BEEC-CEA6-480B-BFFB-0D072103C182}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{0E926109-FE0C-4C07-991A-D1EA301DB7B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E926109-FE0C-4C07-991A-D1EA301DB7B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E926109-FE0C-4C07-991A-D1EA301DB7B7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8EA7BEEC-CEA6-480B-BFFB-0D072103C182}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8EA7BEEC-CEA6-480B-BFFB-0D072103C182}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8EA7BEEC-CEA6-480B-BFFB-0D072103C182}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8EA7BEEC-CEA6-480B-BFFB-0D072103C182}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
