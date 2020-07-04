@@ -51,6 +51,8 @@ namespace ConsoleApp1
             foreach(var el in list)
                 Console.WriteLine($"{el.CarId}\t{el.Make}\t{el.Color}\t{el.Name}");
             Console.ReadKey();
+            inventory.ProcessCreditRisk(2);
+            Console.ReadKey();
         }
     }
 }

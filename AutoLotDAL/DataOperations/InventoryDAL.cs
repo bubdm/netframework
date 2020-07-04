@@ -168,5 +168,52 @@ namespace AutoLotDAL.DataOperations
             }
             return carName;
         }
+
+        public void ProcessCreditRisk(int custId)
+        {
+            OpenConnection();
+            string fName;
+            string lName;
+            var cmdSelect = new SqlCommand($"SELECT * FROM Customers WHERE CustId = @id", _sqlConnection);
+            cmdSelect.Parameters.Add("@id", SqlDbType.Int, -1).Value = custId;
+            using (var reader = cmdSelect.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    fName = (string) reader["FirstName"];
+                    lName = (string) reader["LastName"];
+                }
+                else
+                {
+                    CloseConnection();
+                    return;
+                }
+            }
+            var cmdRemove = new SqlCommand($"DELETE FROM Customers WHERE CustId = @id", _sqlConnection);
+            cmdRemove.Parameters.Add("@id", SqlDbType.Int, -1).Value = custId;
+            var cmdInsert = new SqlCommand($"INSERT INTO CreditRisks (FirstName,LastName) VALUES (@fname, @lname)", _sqlConnection);
+            cmdInsert.Parameters.Add("@fname", SqlDbType.NVarChar, -1).Value = fName;
+            cmdInsert.Parameters.Add("@lname", SqlDbType.NVarChar, -1).Value = lName;
+            SqlTransaction tx = null;
+            try
+            {
+                tx = _sqlConnection.BeginTransaction();
+                cmdInsert.Transaction = tx;
+                cmdRemove.Transaction = tx;
+                cmdInsert.ExecuteNonQuery();
+                cmdRemove.ExecuteNonQuery();
+                tx.Commit();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                tx?.Rollback();
+            }
+            finally
+            {
+                CloseConnection();
+            }
+        }
     }
 }
