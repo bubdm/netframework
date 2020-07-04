@@ -50,11 +50,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AutoLotDAL\AutoLotDAL.csproj">
-      <Project>{0e926109-fe0c-4c07-991a-d1ea301db7b7}</Project>
-      <Name>AutoLotDAL</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
