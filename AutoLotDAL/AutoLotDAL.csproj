@@ -41,9 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BulkCopy\IMyDataReader.cs" />
+    <Compile Include="BulkCopy\MyDataReader.cs" />
+    <Compile Include="BulkCopy\ProcessBulkCopy.cs" />
     <Compile Include="DataOperations\InventoryDAL.cs" />
     <Compile Include="Modes\Car.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

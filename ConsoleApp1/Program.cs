@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using AutoLotDAL.BulkCopy;
 using AutoLotDAL.DataOperations;
 using AutoLotDAL.Modes;
 
@@ -51,7 +53,22 @@ namespace ConsoleApp1
             foreach(var el in list)
                 Console.WriteLine($"{el.CarId}\t{el.Make}\t{el.Color}\t{el.Name}");
             Console.ReadKey();
-            inventory.ProcessCreditRisk(2);
+
+            var cars = new List<Car>()
+            {
+                new Car {Make = "Honda", Color = "Black", Name = "One"},
+                new Car {Make = "Volvo", Color = "Yellow", Name = "Lang"},
+                new Car {Make = "VW", Color = "White", Name = "Three"},
+                new Car {Make = "Toyota", Color = "Green", Name = "Five"},
+            };
+            ProcessBulkCopy.ExecuteBulkCopy(cars, "Inventory");
+            Console.WriteLine("После добавления:");
+            list = inventory.GetAllInventory(); 
+            Console.WriteLine("Ид\tМарка\tЦвет\tНазвание");
+            foreach(var el in list)
+                Console.WriteLine($"{el.CarId}\t{el.Make}\t{el.Color}\t{el.Name}");
+
+            
             Console.ReadKey();
         }
     }
