@@ -51,12 +51,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EF\AutoLotEntities.cs" />
+    <Compile Include="EF\CreditRisk.cs" />
+    <Compile Include="EF\Customer.cs" />
+    <Compile Include="EF\Inventory.cs" />
+    <Compile Include="EF\MyDataInitializer.cs" />
+    <Compile Include="EF\Order.cs" />
+    <Compile Include="Models\CustomerPartial.cs" />
+    <Compile Include="Models\InventoryPartial.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="EF\" />
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
