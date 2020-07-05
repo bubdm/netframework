@@ -59,6 +59,7 @@
     <Compile Include="EF\Customer.cs" />
     <Compile Include="EF\Inventory.cs" />
     <Compile Include="EF\Order.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
