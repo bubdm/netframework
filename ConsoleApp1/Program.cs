@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Core;
 using System.Linq;
 using System.Linq.Expressions;
@@ -22,7 +23,21 @@ namespace ConsoleApp1
             //LINQPrintAllInventory();
             using (var context = new AutoLotEntities())
             {
-                Console.WriteLine(context.Inventories.Find(9));
+                context.Configuration.LazyLoadingEnabled = false;
+                foreach (var inv in context.Inventories)
+                {
+                    context.Entry(inv).Collection(x => x.Orders).Load();
+                    foreach (var el in inv.Orders)
+                    {
+                        Console.WriteLine($"{inv.Name} - id: {el.OrderId}");
+                    }
+                }
+                Console.WriteLine("Orders:");
+                foreach (var el in context.Orders)
+                {
+                    context.Entry(el).Reference(x => x.Inventory).Load();
+                    Console.WriteLine($"id: {el.OrderId} {el.Inventory.Make} {el.Inventory.Color}");
+                }
             }
             Console.ReadKey();
         }
