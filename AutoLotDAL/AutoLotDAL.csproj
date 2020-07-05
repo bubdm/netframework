@@ -60,7 +60,12 @@
     <Compile Include="Migrations\202007052100514_Initial.Designer.cs">
       <DependentUpon>202007052100514_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007052125015_Final.cs" />
+    <Compile Include="Migrations\202007052125015_Final.Designer.cs">
+      <DependentUpon>202007052125015_Final.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Base\EntityBase.cs" />
     <Compile Include="Models\CustomerPartial.cs" />
     <Compile Include="Models\InventoryPartial.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -69,10 +74,14 @@
     <EmbeddedResource Include="Migrations\202007052100514_Initial.resx">
       <DependentUpon>202007052100514_Initial.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007052125015_Final.resx">
+      <DependentUpon>202007052125015_Final.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

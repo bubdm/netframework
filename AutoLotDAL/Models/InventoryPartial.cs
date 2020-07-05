@@ -6,7 +6,7 @@ namespace AutoLotDAL.EF
     {
         public override string ToString()
         {
-            return $"{Name ?? "<без имени>"} цвета {Color} марки {Make} c Id {CarId}";
+            return $"{Name ?? "<без имени>"} цвета {Color} марки {Make} c Id {Id}";
         }
         [NotMapped]
         public string MakeColor => $"{Make} + {Color}";

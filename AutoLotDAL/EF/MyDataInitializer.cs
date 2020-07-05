@@ -40,7 +40,7 @@ namespace AutoLotDAL.EF
             context.CreditRisks.AddOrUpdate(x => new { x.FirstName, x.LastName },
                 new CreditRisk
                 {
-                    CustId = customers[4].CustId,
+                    Id = customers[4].Id,
                     FirstName = customers[4].FirstName,
                     LastName = customers[4].LastName,
                 });
