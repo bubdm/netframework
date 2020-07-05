@@ -15,6 +15,6 @@ namespace ConsoleApp1.EF
 
         public int CarId { get; set; }
 
-        public virtual Car Car { get; set; }
+        public virtual Inventory Inventory { get; set; }
     }
 }

@@ -7,10 +7,10 @@ namespace ConsoleApp1.EF
     using System.Data.Entity.Spatial;
 
     [Table("Inventory")]
-    public partial class Car
+    public partial class Inventory
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Car()
+        public Inventory()
         {
             Orders = new HashSet<Order>();
         }
@@ -24,8 +24,8 @@ namespace ConsoleApp1.EF
         [StringLength(50)]
         public string Color { get; set; }
 
-        [StringLength(50), Column("Name")]
-        public string TopName { get; set; }
+        [StringLength(50)]
+        public string Name { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }

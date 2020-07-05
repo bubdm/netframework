@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.EF
 {
-    public partial class Car
+    public partial class Inventory
     {
         public override string ToString()
         {
-            return $"{this.TopName ?? "<без имени>"} цвета {this.Color} марки {this.Make} c Id {this.CarId}";
+            return $"{this.Name ?? "<без имени>"} цвета {this.Color} марки {this.Make} c Id {this.CarId}";
         }
     }
 }

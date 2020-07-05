@@ -8,13 +8,13 @@ namespace ConsoleApp1.EF
     public partial class AutoLotEntities : DbContext
     {
         public AutoLotEntities()
-            : base("name=AutoLotConnection")
+            : base("name=AutoLotEntities")
         {
         }
 
         public virtual DbSet<CreditRisk> CreditRisks { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<Car> Cars { get; set; }
+        public virtual DbSet<Inventory> Inventories { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
