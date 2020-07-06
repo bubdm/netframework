@@ -69,6 +69,7 @@
     <Compile Include="Models\CustomerPartial.cs" />
     <Compile Include="Models\InventoryPartial.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repos\IRepo.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202007052100514_Initial.resx">
