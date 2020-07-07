@@ -7,7 +7,7 @@ using AutoLotDAL.EF;
 
 namespace AutoLotDAL.Repos
 {
-    class InventoryRepo : BaseRepo<Inventory>
+    public class InventoryRepo : BaseRepo<Inventory>
     {
         /// <summary> Извлечение всех записей </summary>
         public new List<Inventory> GetAll() => Context.Inventories.OrderBy(x => x.Name).ToList();
