@@ -56,6 +56,7 @@
     <Compile Include="EF\Inventory.cs" />
     <Compile Include="EF\MyDataInitializer.cs" />
     <Compile Include="EF\Order.cs" />
+    <Compile Include="Interception\ConsoleWriterInterceptor.cs" />
     <Compile Include="Migrations\202007052100514_Initial.cs" />
     <Compile Include="Migrations\202007052100514_Initial.Designer.cs">
       <DependentUpon>202007052100514_Initial.cs</DependentUpon>
