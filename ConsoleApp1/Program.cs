@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using AutoLotDAL.EF;
 using AutoLotDAL.Models;
 using AutoLotDAL.Repos;
 
@@ -10,14 +11,19 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("EF:");
+            using (var context = new AutoLotEntities())
+            {
+                foreach (var el in context.Inventories)
+                    Console.WriteLine(el);
+            }
+            Console.WriteLine("Repo:");
             using (var repo = new InventoryRepo())
             {
                 foreach (var el in repo.GetAll())
-                {
                     Console.WriteLine(el);
-                }
             }
-            TestConcurrency();
+            //TestConcurrency();
             Console.WriteLine("Нажмите любую кнопку ...");
             Console.ReadKey();
         }
