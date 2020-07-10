@@ -1,3 +1,6 @@
+using System.Data.Entity.Infrastructure.Interception;
+using AutoLotDAL.Interception;
+
 namespace AutoLotDAL.EF
 {
     using AutoLotDAL.Models;
