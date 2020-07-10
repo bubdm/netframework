@@ -1,10 +1,8 @@
-using System.ComponentModel.DataAnnotations.Schema;
-using AutoLotDAL.Models.Base;
-
-namespace AutoLotDAL.EF
+namespace AutoLotDAL.Models
 {
     using System.ComponentModel.DataAnnotations;
-
+    using System.ComponentModel.DataAnnotations.Schema;
+    using AutoLotDAL.Models.Base;
     public partial class CreditRisk : EntityBase
     {
         //[Key]

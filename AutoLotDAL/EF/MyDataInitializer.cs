@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using AutoLotDAL.Models;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 

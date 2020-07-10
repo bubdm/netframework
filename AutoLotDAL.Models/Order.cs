@@ -1,8 +1,6 @@
-using System.ComponentModel.DataAnnotations;
-using AutoLotDAL.Models.Base;
-
-namespace AutoLotDAL.EF
+namespace AutoLotDAL.Models
 {
+    using AutoLotDAL.Models.Base;
     using System.ComponentModel.DataAnnotations.Schema;
 
     public partial class Order : EntityBase

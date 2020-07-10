@@ -1,29 +1,23 @@
-using AutoLotDAL.Models.Base;
-
-namespace AutoLotDAL.EF
+namespace AutoLotDAL.Models
 {
+    using AutoLotDAL.Models.Base;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("Inventory")]
-    public partial class Inventory : EntityBase
+    public partial class Customer : EntityBase
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Inventory()
+        public Customer()
         { }
 
         //[Key]
-        //public int CarId { get; set; }
+        //public int CustId { get; set; }
 
         [StringLength(50)]
-        public string Make { get; set; }
+        public string FirstName { get; set; }
 
         [StringLength(50)]
-        public string Color { get; set; }
-
-        [StringLength(50)]
-        public string Name { get; set; }
+        public string LastName { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; } = new HashSet<Order>();

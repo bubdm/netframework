@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
-using AutoLotDAL.EF;
+using AutoLotDAL.Models;
 using AutoLotDAL.Repos;
 
 namespace ConsoleApp1

@@ -3,6 +3,7 @@ using AutoLotDAL.EF;
 
 namespace AutoLotDAL.Migrations
 {
+    using AutoLotDAL.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
