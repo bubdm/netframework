@@ -10,8 +10,16 @@ namespace ConsoleApp2
             //Database.SetInitializer(new SampleDataInitializer()); //удаление, создание и заполнение базы данных
             using (var context = new SampleEntities())
             {
-                foreach (var el in context.Persons)
-                    Console.WriteLine(el + " - " + el.Department.Name);
+                Console.WriteLine("Persons:");
+                foreach (var per in context.Persons)
+                    Console.WriteLine(per + " - " + per.Department.Name);
+                Console.WriteLine("Departments:");
+                foreach (var dep in context.Departments)
+                {
+                    Console.WriteLine(dep + ":");
+                    foreach (var per in dep.Persons)
+                        Console.WriteLine(per);
+                }
             }
             Console.WriteLine("Нажмите кнопку ...");
             Console.ReadKey();
