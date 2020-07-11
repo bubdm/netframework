@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1169
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp1", "WpfApp1\WpfApp1.csproj", "{CE3BC077-CBE9-4A79-AF59-AC543DD06E5C}"
 EndProject
@@ -10,6 +10,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoLotDAL", "AutoLotDAL\AutoLotDAL.csproj", "{38E04C69-625D-4869-BA4C-0855E113F517}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoLotDAL.Models", "AutoLotDAL.Models\AutoLotDAL.Models.csproj", "{896ABD7B-D2BE-434F-8E7E-86BC40F143C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleDAL", "SampleDAL\SampleDAL.csproj", "{6DAFA4B0-7D89-4911-9A70-728F0B2FF086}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleDAL.Models", "SampleDAL.Models\SampleDAL.Models.csproj", "{601E53C7-21B7-4D14-9729-15F15DDDB630}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp2", "ConsoleApp2\ConsoleApp2.csproj", "{81AD1207-9F4D-4392-A1FF-DE8701F992C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +39,18 @@ Global
 		{896ABD7B-D2BE-434F-8E7E-86BC40F143C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{896ABD7B-D2BE-434F-8E7E-86BC40F143C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{896ABD7B-D2BE-434F-8E7E-86BC40F143C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DAFA4B0-7D89-4911-9A70-728F0B2FF086}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DAFA4B0-7D89-4911-9A70-728F0B2FF086}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DAFA4B0-7D89-4911-9A70-728F0B2FF086}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DAFA4B0-7D89-4911-9A70-728F0B2FF086}.Release|Any CPU.Build.0 = Release|Any CPU
+		{601E53C7-21B7-4D14-9729-15F15DDDB630}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{601E53C7-21B7-4D14-9729-15F15DDDB630}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{601E53C7-21B7-4D14-9729-15F15DDDB630}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{601E53C7-21B7-4D14-9729-15F15DDDB630}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81AD1207-9F4D-4392-A1FF-DE8701F992C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81AD1207-9F4D-4392-A1FF-DE8701F992C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81AD1207-9F4D-4392-A1FF-DE8701F992C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81AD1207-9F4D-4392-A1FF-DE8701F992C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

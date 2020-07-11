@@ -42,9 +42,6 @@ namespace AutoLotDAL.EF
         private void OnObjectMaterialized(object sender, System.Data.Entity.Core.Objects.ObjectMaterializedEventArgs e)
         { //полезно при работе с WPF
         }
-
-
-
         protected override void Dispose(bool disposing)
         {
             //DbInterception.Remove(DatabaseLogger);
