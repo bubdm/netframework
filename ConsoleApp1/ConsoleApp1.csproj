@@ -48,6 +48,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="bin\Debug\sample.xsc">
+      <DependentUpon>sample.xsd</DependentUpon>
+    </None>
+    <None Include="bin\Debug\sample.xss">
+      <DependentUpon>sample.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
