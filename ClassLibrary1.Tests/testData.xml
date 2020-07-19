@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<UserDetails>
+  <User name="Dmitriy" age="18"/>
+  <User name="Andrei" age="20"/>
+  <User name="Next" age="22"/>
+</UserDetails>

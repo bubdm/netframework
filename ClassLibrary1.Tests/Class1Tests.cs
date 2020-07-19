@@ -1,3 +1,4 @@
+п»їusing System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ClassLibrary1.Tests
@@ -5,41 +6,22 @@ namespace ClassLibrary1.Tests
     [TestClass]
     public class Class1Tests
     {
-        [TestMethod]
-        public void GetSqrt_4_return2()
-        {
-            const double x = 4.0;
-            const double expected = 2.0;
+        public TestContext TestContext { get; set; }
+        private Class1 class1 = new Class1();
 
-            double actual = Class1.GetSqrt(x);
-
-            Assert.AreEqual(expected, actual, $"Sqrt {x} должен быть = {expected}, а не {actual}");
-        }
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML",
+            "testData.xml",
+            "User",
+            DataAccessMethod.Sequential)]
         [TestMethod]
-        public void GetSqrt_10_return3_1_d_0_1()
+        public void Good_FromXML_Trues()
         {
-            const double expected = 3.1;
-            const double delta = 0.1;
+            string name = Convert.ToString(TestContext.DataRow["name"]);
+            int age = Convert.ToInt32(TestContext.DataRow["age"]);
 
-            double actual = Class1.GetSqrt(10);
+            bool result = class1.Good(name, age);
 
-            Assert.AreEqual(expected, actual, delta, "ошибка!");
-        }
-        [TestMethod]
-        public void StringAreEqual()
-        {
-            const string inp = "hello";
-            const string expected = "HELLO";
-            //игнорирование регистра
-            Assert.AreEqual(expected, inp, true);
-        }
-        [TestMethod]
-        public void StringsAreSame()
-        {
-            string a = "hello";
-            string b = "hello";
-            //равенство ссылок
-            Assert.AreSame(a, b);
+            Assert.IsTrue(result);
         }
     }
 }

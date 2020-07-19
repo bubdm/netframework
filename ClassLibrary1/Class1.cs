@@ -18,5 +18,14 @@ namespace ClassLibrary1
                 throw new ArgumentNullException("Not Parameter");
             return "Hello " + name;
         }
+
+        public bool Good(string name, int age)
+        {
+            if (name.Length < 3)
+                return false;
+            if (age <= 0)
+                return true;
+            return true;
+        }
     }
 }
