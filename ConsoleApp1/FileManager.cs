@@ -13,16 +13,17 @@ namespace ConsoleApp1
 {
     class FileManager
     {
-        private IDataAccess dataAccess;
-
         public FileManager()
         {
-            dataAccess = DataAccessFactory.Create();
         }
-
+        protected virtual IDataAccess CreateDataAccess() //доступный для переопределения фабричный метод
+        {
+            return new FileDataObject();
+        }
         /// <summary> Поиск файла </summary>
         public bool FindFile(string filename) //внедрение зависимости через интерфейс
         {
+            IDataAccess dataAccess = CreateDataAccess(); //создание фабричным методом
             List<string> files = dataAccess.GetFiles();
             foreach (var file in files)
             {
