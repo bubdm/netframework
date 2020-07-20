@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,19 @@ namespace ClassLibrary1
             if (age <= 0)
                 return true;
             return true;
+        }
+
+
+
+        public string TemplateFolder { get; set; }
+        public string FromTemplate(string name, string level)
+        {
+            string path = Path.Combine(TemplateFolder, "ExamCreatedTemplate.txt");
+            string template = File.ReadAllText(path);
+            template = template.Replace("{Name}", name);
+            template = template.Replace("{Level}", level);
+
+            return template;
         }
     }
 }
