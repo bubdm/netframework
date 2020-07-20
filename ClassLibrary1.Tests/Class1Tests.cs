@@ -12,7 +12,8 @@ namespace ConsoleApp1.Tests
         public void FindFile_DI_True()
         {
             IDataAccess access = new StubFileDataObject();
-            FileManager fileManager = new FileManager(access);
+            FileManager fileManager = new FileManager();
+            fileManager.DataAccess = access; //внедрение зависимости
             string filename = "file1.txt";
 
             bool actual = fileManager.FindFile(filename);

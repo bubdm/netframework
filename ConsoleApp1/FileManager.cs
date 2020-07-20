@@ -2,21 +2,31 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
+// InternalsVisibleTo - указывает, что типы, которые обычно доступны только в текущей сборке будут доступны также в сборке,
+// которая определена в параметрах.
+[assembly: InternalsVisibleTo("ClassLibrary1.Tests")]
 namespace ConsoleApp1
 {
-    public class FileManager
+    class FileManager
     {
         IDataAccess dataAccess; //уменьшение связанности применением IDataAccess
-        public FileManager() //стандартный конструктор
+        public FileManager()
         {
-            dataAccess = new FileDataObject();
         }
-        public FileManager(IDataAccess dataAccess) //тестировочный конструктор
+        /// <summary> Свойство внедрения зависимости </summary>
+        public IDataAccess DataAccess
         {
-            this.dataAccess = dataAccess;
+            set => dataAccess = value;
+            get
+            {
+                if (dataAccess == null)
+                    throw new MemberAccessException("dataAccess не инициализирован");
+                return dataAccess;
+            }
         }
         /// <summary> Поиск файла </summary>
         public bool FindFile(string filename)
