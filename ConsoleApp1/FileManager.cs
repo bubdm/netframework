@@ -13,23 +13,8 @@ namespace ConsoleApp1
 {
     class FileManager
     {
-        IDataAccess dataAccess; //уменьшение связанности применением IDataAccess
-        public FileManager()
-        {
-        }
-        /// <summary> Свойство внедрения зависимости </summary>
-        public IDataAccess DataAccess
-        {
-            set => dataAccess = value;
-            get
-            {
-                if (dataAccess == null)
-                    throw new MemberAccessException("dataAccess не инициализирован");
-                return dataAccess;
-            }
-        }
         /// <summary> Поиск файла </summary>
-        public bool FindFile(string filename)
+        public bool FindFile(string filename, IDataAccess dataAccess) //внедрение зависимости через интерфейс
         {
             List<string> files = dataAccess.GetFiles();
             foreach (var file in files)

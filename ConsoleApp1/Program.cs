@@ -15,9 +15,7 @@ namespace ConsoleApp1
 
             FileManager manager = new FileManager();
 
-            manager.DataAccess = new FileDataObject();
-
-            if (manager.FindFile(filename))
+            if (manager.FindFile(filename, new FileDataObject()))
                 Console.WriteLine("Файл найден!");
             else
                 Console.WriteLine("Файл не найден!");

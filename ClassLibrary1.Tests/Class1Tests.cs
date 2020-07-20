@@ -13,10 +13,9 @@ namespace ConsoleApp1.Tests
         {
             IDataAccess access = new StubFileDataObject();
             FileManager fileManager = new FileManager();
-            fileManager.DataAccess = access; //внедрение зависимости
             string filename = "file1.txt";
 
-            bool actual = fileManager.FindFile(filename);
+            bool actual = fileManager.FindFile(filename, access);
 
             Assert.IsTrue(actual);
         }
