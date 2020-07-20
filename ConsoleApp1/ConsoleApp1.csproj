@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccessObjects\DataAccessFactory.cs" />
     <Compile Include="DataAccessObjects\FileDataObject.cs" />
     <Compile Include="DataAccessObjects\StubFileDataObject.cs" />
     <Compile Include="FileManager.cs" />

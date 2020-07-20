@@ -12,10 +12,10 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             string filename = "sample.txt";
-
+            
             FileManager manager = new FileManager();
 
-            if (manager.FindFile(filename, new FileDataObject()))
+            if (manager.FindFile(filename))
                 Console.WriteLine("Файл найден!");
             else
                 Console.WriteLine("Файл не найден!");

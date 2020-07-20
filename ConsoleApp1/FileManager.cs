@@ -13,8 +13,15 @@ namespace ConsoleApp1
 {
     class FileManager
     {
+        private IDataAccess dataAccess;
+
+        public FileManager()
+        {
+            dataAccess = DataAccessFactory.Create();
+        }
+
         /// <summary> Поиск файла </summary>
-        public bool FindFile(string filename, IDataAccess dataAccess) //внедрение зависимости через интерфейс
+        public bool FindFile(string filename) //внедрение зависимости через интерфейс
         {
             List<string> files = dataAccess.GetFiles();
             foreach (var file in files)

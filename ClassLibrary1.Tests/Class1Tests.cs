@@ -11,11 +11,11 @@ namespace ConsoleApp1.Tests
         [TestMethod]
         public void FindFile_DI_True()
         {
-            IDataAccess access = new StubFileDataObject();
+            DataAccessFactory.SetDataAccessObject(new StubFileDataObject());
             FileManager fileManager = new FileManager();
             string filename = "file1.txt";
 
-            bool actual = fileManager.FindFile(filename, access);
+            bool actual = fileManager.FindFile(filename);
 
             Assert.IsTrue(actual);
         }
