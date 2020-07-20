@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace ConsoleApp1.DataAccessObjects
 {
     /// <summary> Стандартное получение списка файлов в каталоге </summary>
     class FileDataObject : IDataAccess

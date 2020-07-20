@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleApp1.DataAccessObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace ConsoleApp1
 {
     public class FileManager
     {
-        IDataAccess dataAccess; //уменьшение связанности
+        IDataAccess dataAccess; //уменьшение связанности применением IDataAccess
         public FileManager() //стандартный конструктор
         {
             dataAccess = new FileDataObject();
