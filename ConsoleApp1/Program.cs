@@ -20,9 +20,10 @@ namespace ConsoleApp1
             dataSet.ExtendedProperties["DataSetId"] = Guid.NewGuid(); //уникальный идентификтор
             dataSet.ExtendedProperties["Company"] = "Пример";
             FillDataSet(dataSet);
-            SaveAndLoadAsXml(dataSet);
-            SaveAndLoadAsBinary(dataSet);
+            //SaveAndLoadAsXml(dataSet);
+            var newdata = SaveAndLoadAsBinary(dataSet);
             PrintDataSet(dataSet);
+            PrintDataSet(newdata);
             Console.WriteLine("Нажмите любую кнопку ...");
             Console.ReadKey();
         }
@@ -69,13 +70,13 @@ namespace ConsoleApp1
                 for (var ci = 0; ci < table.Columns.Count; ci++)
                     Console.Write($"{table.Columns[ci].ColumnName}\t");
                 Console.WriteLine("\n------------------------------------------------");
-                //for (var ri = 0; ri < table.Rows.Count; ri++)
-                //{
-                //    for (var ci = 0; ci < table.Columns.Count; ci++)
-                //        Console.Write($"{table.Rows[ri][ci]}\t");
-                //    Console.WriteLine();
-                //}
-                PrintTable(table);
+                for (var ri = 0; ri < table.Rows.Count; ri++)
+                {
+                    for (var ci = 0; ci < table.Columns.Count; ci++)
+                        Console.Write($"{table.Rows[ri][ci]}\t");
+                    Console.WriteLine();
+                }
+                //PrintTable(table);
             }
         }
         private static void PrintTable(DataTable table)
@@ -96,19 +97,20 @@ namespace ConsoleApp1
             sample.Clear();
             sample.ReadXml("sample.xml");
         }
-        private static void SaveAndLoadAsBinary(DataSet sample)
+        private static DataSet SaveAndLoadAsBinary(DataSet sample)
         {
+            DataSet retMe;
             sample.RemotingFormat = SerializationFormat.Binary;
             var bFormat = new BinaryFormatter();
             using (var stream = new FileStream("binarysample.bin", FileMode.Create))
             {
                 bFormat.Serialize(stream, sample);
             }
-            sample.Clear();
             using (var stream = new FileStream("binarysample.bin", FileMode.Open))
             {
-                sample = (DataSet)bFormat.Deserialize(stream);
+                retMe = (DataSet)bFormat.Deserialize(stream);
             }
+            return retMe;
         }
     }
 }
