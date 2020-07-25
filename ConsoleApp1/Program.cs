@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -12,9 +14,28 @@ namespace ConsoleApp1
 {
     class Program
     {
-
         static void Main(string[] args)
         {
+            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=sample;Integrated Security=True";
+            DataSet data = new DataSet("sample");
+            //SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Person", connectionString);
+            var adapter = ConfigureNewAdapter(connectionString);
+            //дружественные к пользователю имена колонок
+            DataTableMapping tableMapping = adapter.TableMappings.Add("Fam","Family");
+            tableMapping.ColumnMappings.Add("Name", "Person Name");
+            tableMapping.ColumnMappings.Add("Age", "Person Ages");
+            //int count = adapter.Fill(data, "Person");
+            data.Tables.Add(GetAllPerson(adapter, out int count));
+            Console.WriteLine($"Кол-во строк: {count}");
+            PrintDataSet(data);
+            DataRow row = data.Tables["Person"].Select("Id = 1").First();
+            row["Name"] = "test1"; //изменение
+            UpdatePerson(adapter, data.Tables["Person"]);
+            Console.WriteLine("Изменение данных:");
+            PrintDataSet(data);
+            Console.WriteLine("Нажмите любую кнопку ...");
+            Console.ReadKey();
+
             //DataSet dataSet = new DataSet("Sample");
             //dataSet.ExtendedProperties["TimeStamp"] = DateTime.Now; //время создания
             //dataSet.ExtendedProperties["DataSetId"] = Guid.NewGuid(); //уникальный идентификтор
@@ -24,12 +45,29 @@ namespace ConsoleApp1
             //var newdata = SaveAndLoadAsBinary(dataSet);
             //PrintDataSet(dataSet);
             //PrintDataSet(newdata);
-
-
-
-            Console.WriteLine("Нажмите любую кнопку ...");
-            Console.ReadKey();
+            //Console.WriteLine("Нажмите любую кнопку ...");
+            //Console.ReadKey();
         }
+        /// <summary> Создание нового адаптера со всеми командами </summary>
+        private static SqlDataAdapter ConfigureNewAdapter(string connectionString)
+        {
+            var adapter = new SqlDataAdapter("SELECT * FROM Person", connectionString);
+            var _ = new SqlCommandBuilder(adapter); //конфигурирование остальных команд
+            return adapter;
+        }
+        /// <summary> Заполнение только одной таблицы адаптером данных </summary>
+        private static DataTable GetAllPerson(SqlDataAdapter adapter, out int count)
+        {
+            DataTable table = new DataTable("Person");
+            count = adapter.Fill(table); //заполнение таблицы данными
+            return table;
+        }
+        /// <summary> Обновление данных в таблице </summary>
+        private static void UpdatePerson(SqlDataAdapter adapter, DataTable table)
+        {
+            adapter.Update(table); //обновление хранилища по таблице
+        }
+
         //private static void FillDataSet(DataSet dataSet)
         //{
         //    var personIdColumn = new DataColumn("Id", typeof(int))
@@ -61,27 +99,27 @@ namespace ConsoleApp1
         //    personTable.PrimaryKey = new[] { personTable.Columns[0] };
         //    dataSet.Tables.Add(personTable); //установка таблицы в контейнер
         //}
-        //private static void PrintDataSet(DataSet dataSet)
-        //{
-        //    Console.WriteLine($"DataSet id named: {dataSet.DataSetName}");
-        //    foreach (DictionaryEntry de in dataSet.ExtendedProperties)
-        //        Console.WriteLine($"Ключ = {de.Key}, значение = {de.Value}");
-        //    Console.WriteLine("*************************************************");
-        //    foreach (DataTable table in dataSet.Tables)
-        //    {
-        //        Console.WriteLine($"=> {table.TableName} Таблица:");
-        //        for (var ci = 0; ci < table.Columns.Count; ci++)
-        //            Console.Write($"{table.Columns[ci].ColumnName}\t");
-        //        Console.WriteLine("\n------------------------------------------------");
-        //        for (var ri = 0; ri < table.Rows.Count; ri++)
-        //        {
-        //            for (var ci = 0; ci < table.Columns.Count; ci++)
-        //                Console.Write($"{table.Rows[ri][ci]}\t");
-        //            Console.WriteLine();
-        //        }
-        //        //PrintTable(table);
-        //    }
-        //}
+        private static void PrintDataSet(DataSet dataSet)
+        {
+            Console.WriteLine($"DataSet id named: {dataSet.DataSetName}");
+            foreach (DictionaryEntry de in dataSet.ExtendedProperties)
+                Console.WriteLine($"Ключ = {de.Key}, значение = {de.Value}");
+            Console.WriteLine("*************************************************");
+            foreach (DataTable table in dataSet.Tables)
+            {
+                Console.WriteLine($"=> {table.TableName} Таблица:");
+                for (var ci = 0; ci < table.Columns.Count; ci++)
+                    Console.Write($"{table.Columns[ci].ColumnName}\t");
+                Console.WriteLine("\n------------------------------------------------");
+                for (var ri = 0; ri < table.Rows.Count; ri++)
+                {
+                    for (var ci = 0; ci < table.Columns.Count; ci++)
+                        Console.Write($"{table.Rows[ri][ci]}\t");
+                    Console.WriteLine();
+                }
+                //PrintTable(table);
+            }
+        }
         //private static void PrintTable(DataTable table)
         //{
         //    DataTableReader reader = table.CreateDataReader();
