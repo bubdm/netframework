@@ -8,6 +8,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="600" WindowStartupLocation="CenterScreen">
     <Grid>
+        <DataGrid HorizontalAlignment="Left" Height="261" Margin="48,51,0,0" VerticalAlignment="Top" Width="468"/>
 
     </Grid>
 </Window>
