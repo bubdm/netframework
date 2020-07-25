@@ -41,7 +41,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxReplaceNameTo = new System.Windows.Forms.TextBox();
             this.buttonReplaceName = new System.Windows.Forms.Button();
+            this.dataGridView20 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPersons)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView20)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewPersons
@@ -156,11 +158,20 @@
             this.buttonReplaceName.UseVisualStyleBackColor = true;
             this.buttonReplaceName.Click += new System.EventHandler(this.buttonReplaceName_Click);
             // 
+            // dataGridView20
+            // 
+            this.dataGridView20.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView20.Location = new System.Drawing.Point(12, 330);
+            this.dataGridView20.Name = "dataGridView20";
+            this.dataGridView20.Size = new System.Drawing.Size(565, 180);
+            this.dataGridView20.TabIndex = 13;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(603, 522);
+            this.Controls.Add(this.dataGridView20);
             this.Controls.Add(this.buttonReplaceName);
             this.Controls.Add(this.textBoxReplaceNameTo);
             this.Controls.Add(this.label5);
@@ -178,6 +189,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormMain";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPersons)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView20)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -198,6 +210,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxReplaceNameTo;
         private System.Windows.Forms.Button buttonReplaceName;
+        private System.Windows.Forms.DataGridView dataGridView20;
     }
 }
 

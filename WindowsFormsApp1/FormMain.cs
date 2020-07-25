@@ -14,6 +14,7 @@ namespace WindowsFormsApp1
     {
         List<Person> list;
         DataTable table;
+        DataView view;
         public FormMain()
         {
             InitializeComponent();
@@ -22,14 +23,16 @@ namespace WindowsFormsApp1
                 new Person {Id = 1, Fam = "Testin1", Name = "Test1", Age = 18},
                 new Person {Id = 2, Fam = "Testin2", Name = "Test2", Age = 28},
                 new Person {Id = 3, Fam = "Testin3", Name = "Test3", Age = 20},
-                new Person {Id = 4, Fam = "Testin2", Name = "Test4", Age = 22},
+                new Person {Id = 4, Fam = "Testin2", Name = "Test4", Age = 12},
                 new Person {Id = 5, Fam = "Testin2", Name = "Test1", Age = 23},
                 new Person {Id = 6, Fam = "Testin2", Name = "Test2", Age = 24},
-                new Person {Id = 7, Fam = "Testin1", Name = "Test3", Age = 28},
+                new Person {Id = 7, Fam = "Testin1", Name = "Test3", Age = 18},
                 new Person {Id = 8, Fam = "Testin2", Name = "Test4", Age = 28},
             };
             table = CreateDataTable(list);
             dataGridViewPersons.DataSource = table;
+            view = CreateDataView20(table);
+            dataGridView20.DataSource = view;
         }
         private DataTable CreateDataTable(ICollection<Person> list)
         {
@@ -49,6 +52,12 @@ namespace WindowsFormsApp1
                 table.Rows.Add(newRow);
             }
             return table;
+        }
+        private DataView CreateDataView20(DataTable table)
+        {
+            DataView retMe = new DataView(table);
+            retMe.RowFilter = "Age > 20";
+            return retMe;
         }
         //удаление строки
         private void buttonDelete_Click(object sender, EventArgs e)
