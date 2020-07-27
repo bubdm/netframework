@@ -28,17 +28,73 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataGridViewPerson = new System.Windows.Forms.DataGridView();
+            this.sampleDataSet = new WindowsFormsApp2DataDesigner.sampleDataSet();
+            this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.personTableAdapter = new WindowsFormsApp2DataDesigner.sampleDataSetTableAdapters.PersonTableAdapter();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.famDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPerson)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sampleDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewPerson
             // 
+            this.dataGridViewPerson.AutoGenerateColumns = false;
             this.dataGridViewPerson.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPerson.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.famDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.ageDataGridViewTextBoxColumn});
+            this.dataGridViewPerson.DataSource = this.personBindingSource;
             this.dataGridViewPerson.Location = new System.Drawing.Point(12, 12);
             this.dataGridViewPerson.Name = "dataGridViewPerson";
             this.dataGridViewPerson.Size = new System.Drawing.Size(523, 251);
             this.dataGridViewPerson.TabIndex = 0;
+            // 
+            // sampleDataSet
+            // 
+            this.sampleDataSet.DataSetName = "sampleDataSet";
+            this.sampleDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // personBindingSource
+            // 
+            this.personBindingSource.DataMember = "Person";
+            this.personBindingSource.DataSource = this.sampleDataSet;
+            // 
+            // personTableAdapter
+            // 
+            this.personTableAdapter.ClearBeforeFill = true;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // famDataGridViewTextBoxColumn
+            // 
+            this.famDataGridViewTextBoxColumn.DataPropertyName = "Fam";
+            this.famDataGridViewTextBoxColumn.HeaderText = "Fam";
+            this.famDataGridViewTextBoxColumn.Name = "famDataGridViewTextBoxColumn";
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // ageDataGridViewTextBoxColumn
+            // 
+            this.ageDataGridViewTextBoxColumn.DataPropertyName = "Age";
+            this.ageDataGridViewTextBoxColumn.HeaderText = "Age";
+            this.ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
             // 
             // FormMain
             // 
@@ -51,6 +107,8 @@
             this.Text = "Мастера данных";
             this.Load += new System.EventHandler(this.FormMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPerson)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sampleDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -58,6 +116,13 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridViewPerson;
+        private sampleDataSet sampleDataSet;
+        private System.Windows.Forms.BindingSource personBindingSource;
+        private sampleDataSetTableAdapters.PersonTableAdapter personTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn famDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ageDataGridViewTextBoxColumn;
     }
 }
 
