@@ -54,7 +54,6 @@
     <None Include="bin\Debug\sample.xss">
       <DependentUpon>sample.xsd</DependentUpon>
     </None>
-    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ClassLibrary1DAL\ClassLibrary1DAL.csproj">

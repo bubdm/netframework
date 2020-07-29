@@ -37,7 +37,7 @@ namespace ConsoleApp1
             table.Clear();
             adapter.Fill(table);
             PrintPerson(table);
-
+            CallStoredProc();
 
             Console.WriteLine("Нажмите любую кнопку ...");
             Console.ReadKey();
