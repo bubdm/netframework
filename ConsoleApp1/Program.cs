@@ -8,7 +8,11 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using ClassLibrary1DAL;
+using ClassLibrary1DAL.sampleDataSetTableAdapters;
+
 
 namespace ConsoleApp1
 {
@@ -16,13 +20,15 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-
-
+            var table = new sampleDataSet.PersonDataTable();
+            var adapter = new PersonTableAdapter();
+            adapter.Fill(table);
+            PrintPerson(table);
 
 
             Console.WriteLine("Нажмите любую кнопку ...");
             Console.ReadKey();
-
+            #region Old
             //string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=sample;Integrated Security=True";
             //DataSet data = new DataSet("sample");
             ////SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Person", connectionString);
@@ -53,7 +59,22 @@ namespace ConsoleApp1
             //PrintDataSet(newdata);
             //Console.WriteLine("Нажмите любую кнопку ...");
             //Console.ReadKey();
+            #endregion
         }
+        static void PrintPerson(sampleDataSet.PersonDataTable table)
+        {
+            Console.WriteLine($"=> {table.TableName} Таблица:");
+            for (var ci = 0; ci < table.Columns.Count; ci++)
+                Console.Write($"{table.Columns[ci].ColumnName}\t");
+            Console.WriteLine("\n------------------------------------------------");
+            for (var ri = 0; ri < table.Rows.Count; ri++)
+            {
+                for (var ci = 0; ci < table.Columns.Count; ci++)
+                    Console.Write($"{table.Rows[ri][ci]}\t");
+                Console.WriteLine();
+            }
+        }
+
         ///// <summary> Создание нового адаптера со всеми командами </summary>
         //private static SqlDataAdapter ConfigureNewAdapter(string connectionString)
         //{
@@ -104,27 +125,27 @@ namespace ConsoleApp1
         //    personTable.PrimaryKey = new[] { personTable.Columns[0] };
         //    dataSet.Tables.Add(personTable); //установка таблицы в контейнер
         //}
-        private static void PrintDataSet(DataSet dataSet)
-        {
-            Console.WriteLine($"DataSet id named: {dataSet.DataSetName}");
-            foreach (DictionaryEntry de in dataSet.ExtendedProperties)
-                Console.WriteLine($"Ключ = {de.Key}, значение = {de.Value}");
-            Console.WriteLine("*************************************************");
-            foreach (DataTable table in dataSet.Tables)
-            {
-                Console.WriteLine($"=> {table.TableName} Таблица:");
-                for (var ci = 0; ci < table.Columns.Count; ci++)
-                    Console.Write($"{table.Columns[ci].ColumnName}\t");
-                Console.WriteLine("\n------------------------------------------------");
-                for (var ri = 0; ri < table.Rows.Count; ri++)
-                {
-                    for (var ci = 0; ci < table.Columns.Count; ci++)
-                        Console.Write($"{table.Rows[ri][ci]}\t");
-                    Console.WriteLine();
-                }
-                //PrintTable(table);
-            }
-        }
+        //private static void PrintDataSet(DataSet dataSet)
+        //{
+        //    Console.WriteLine($"DataSet id named: {dataSet.DataSetName}");
+        //    foreach (DictionaryEntry de in dataSet.ExtendedProperties)
+        //        Console.WriteLine($"Ключ = {de.Key}, значение = {de.Value}");
+        //    Console.WriteLine("*************************************************");
+        //    foreach (DataTable table in dataSet.Tables)
+        //    {
+        //        Console.WriteLine($"=> {table.TableName} Таблица:");
+        //        for (var ci = 0; ci < table.Columns.Count; ci++)
+        //            Console.Write($"{table.Columns[ci].ColumnName}\t");
+        //        Console.WriteLine("\n------------------------------------------------");
+        //        for (var ri = 0; ri < table.Rows.Count; ri++)
+        //        {
+        //            for (var ci = 0; ci < table.Columns.Count; ci++)
+        //                Console.Write($"{table.Rows[ri][ci]}\t");
+        //            Console.WriteLine();
+        //        }
+        //        //PrintTable(table);
+        //    }
+        //}
         //private static void PrintTable(DataTable table)
         //{
         //    DataTableReader reader = table.CreateDataReader();
