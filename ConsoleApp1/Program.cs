@@ -24,6 +24,19 @@ namespace ConsoleApp1
             var adapter = new PersonTableAdapter();
             adapter.Fill(table);
             PrintPerson(table);
+            Console.WriteLine("Изменение данных в хранилище данных");
+            AddPersons(table, adapter);
+            table.Clear();
+            adapter.Fill(table);
+            PrintPerson(table);
+            Console.WriteLine("Удаление данных в хранилище данных\nИд удаляемой строки:");
+            if (int.TryParse(Console.ReadLine(), out int idDel))
+            {
+                DeletePerson(table, adapter, idDel);
+            }
+            table.Clear();
+            adapter.Fill(table);
+            PrintPerson(table);
 
 
             Console.WriteLine("Нажмите любую кнопку ...");
@@ -61,7 +74,53 @@ namespace ConsoleApp1
             //Console.ReadKey();
             #endregion
         }
-        static void PrintPerson(sampleDataSet.PersonDataTable table)
+        public static void AddPersons(sampleDataSet.PersonDataTable table, PersonTableAdapter adapter)
+        {
+            try
+            {
+                var newRow = table.NewPersonRow();
+                newRow.Fam = "TestingX";
+                newRow.Name = "TestX";
+                newRow.Age = 20;
+                table.AddPersonRow(newRow);
+                table.AddPersonRow("TestingX2", "TestX2", 21);
+                adapter.Update(table); //обновить базу данных
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        public static void DeletePerson(sampleDataSet.PersonDataTable table, PersonTableAdapter adapter, int id)
+        {
+            try
+            {
+                var delRow = table.FindById(id);
+                adapter.Delete(delRow.Id, delRow.Fam, delRow.Name, delRow.Age);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        public static void CallStoredProc()
+        {
+            Console.WriteLine("Показ информации о персоне:");
+            try
+            {
+                var queriesTableAdarter = new QueriesTableAdapter();
+                Console.Write("Введите ид персоны: >");
+                int id = int.Parse(Console.ReadLine());
+                string name = string.Empty;
+                queriesTableAdarter.GetName(id, ref name);
+                Console.WriteLine($"Персона с ид {id} имеет имя {name}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        public static void PrintPerson(sampleDataSet.PersonDataTable table)
         {
             Console.WriteLine($"=> {table.TableName} Таблица:");
             for (var ci = 0; ci < table.Columns.Count; ci++)
@@ -74,6 +133,10 @@ namespace ConsoleApp1
                 Console.WriteLine();
             }
         }
+
+
+
+
 
         ///// <summary> Создание нового адаптера со всеми командами </summary>
         //private static SqlDataAdapter ConfigureNewAdapter(string connectionString)
