@@ -6,9 +6,23 @@
         xmlns:local="clr-namespace:WpfApp1"
         xmlns:corlib="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="600" WindowStartupLocation="CenterScreen">
+        Title="Авторизация" Height="300" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <DataGrid HorizontalAlignment="Left" Height="261" Margin="48,51,0,0" VerticalAlignment="Top" Width="468"/>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Вход в систему Энигма" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.ColumnSpan="2" FontSize="32"/>
+        <TextBlock Grid.Row="1" Text="Логин:" HorizontalAlignment="Right" Margin="5"/>
+        <TextBox x:Name="StringTextBoxLogin" Grid.Column="1" Grid.Row="1" Width="100" HorizontalAlignment="Left" Margin="5"/>
+        <TextBlock Grid.Row="2" Text="Пароль:" HorizontalAlignment="Right" Margin="5"/>
+        <PasswordBox x:Name="StringPasswordBoxPassword" Grid.Column="1" Grid.Row="2" Width="100" HorizontalAlignment="Left" Margin="5"/>
+        <Button Grid.Row="3" Grid.ColumnSpan="2" MaxWidth="300" MaxHeight="60" Content="Вход в Энигму" FontSize="16"/>
     </Grid>
 </Window>
