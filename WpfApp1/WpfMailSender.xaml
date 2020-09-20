@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="WpfMailSender" Height="400" Width="600" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button x:Name="ButtonSendMail" Content="Отправить E-Mail" HorizontalAlignment="Left" Margin="247,180,0,0" VerticalAlignment="Top" Width="140" Click="ButtonSendMail_OnClick"/>
+        <Button x:Name="ButtonSendMail" Content="Отправить E-Mail" HorizontalAlignment="Left" Margin="247,180,0,0" VerticalAlignment="Top" Width="140" Click="ButtonSendMail_OnClick" Height="40"/>
         <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" Margin="247,157,0,0" VerticalAlignment="Top" Width="140"/>
 
     </Grid>

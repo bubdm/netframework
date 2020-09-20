@@ -22,7 +22,7 @@ namespace ConsoleApp1
             //https://myaccount.google.com/lesssecureapps
             SmtpClient sc = new SmtpClient("smtp.gmail.com",587);
             sc.EnableSsl = true;
-            sc.Credentials = new NetworkCredential("kanadeiar@gmail.com", "12Am52205198874");
+            sc.Credentials = new NetworkCredential("kanadeiar@gmail.com", "");
             try
             {
                 sc.Send(mm);

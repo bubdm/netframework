@@ -5,6 +5,10 @@
              StartupUri="WpfMailSender.xaml"
              Startup="App_OnStartup" Exit="App_OnExit">
     <Application.Resources>
-
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Theme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

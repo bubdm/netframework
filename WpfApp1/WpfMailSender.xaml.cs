@@ -26,7 +26,7 @@ namespace WpfApp1
 
         private void ButtonSendMail_OnClick(object sender, RoutedEventArgs e)
         {
-            List<string> listMails = new List<string> {"kanadei@mail.ru", "kanadei@yandex.ru"};
+            List<string> listMails = new List<string> {"kanadei@mail.ru"};
             string password = PasswordBox.Password;
             foreach (var mail in listMails)
             {
@@ -42,7 +42,8 @@ namespace WpfApp1
                         try
                         {
                             sc.Send(mm);
-                            MessageBox.Show("Письмо успешно отправлено.");
+                            SendEndWindow window = new SendEndWindow();
+                            window.ShowDialog();
                         }
                         catch (Exception ex)
                         {
