@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="SendEndWindow" Height="300" Width="400" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="White">
     <Grid>
-        <Label x:Name="ISendEnd" Content="Работа завершена" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" FontWeight="Bold">
+        <Label x:Name="ISendEnd" Content="Письмо отправлено!" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" FontWeight="Bold">
             <Label.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF2CA200" Offset="1"/>

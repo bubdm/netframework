@@ -27,7 +27,6 @@ namespace WpfApp1
         private void ButtonSendMail_OnClick(object sender, RoutedEventArgs e)
         {
             List<string> listMails = new List<string> {"kanadei@mail.ru"};
-            string password = PasswordBox.Password;
             foreach (var mail in listMails)
             {
                 using (MailMessage mm = new MailMessage("kanadeiar@gmail.com", mail))
@@ -38,7 +37,7 @@ namespace WpfApp1
                     using (SmtpClient sc = new SmtpClient("smtp.gmail.com", 587))
                     {
                         sc.EnableSsl = true;
-                        sc.Credentials = new NetworkCredential("kanadeiar@gmail.com", password);
+                        sc.Credentials = new NetworkCredential("kanadeiar@gmail.com", PasswordBox.Password);
                         try
                         {
                             sc.Send(mm);
