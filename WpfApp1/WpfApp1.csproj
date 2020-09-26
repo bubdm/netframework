@@ -72,6 +72,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="AppConfigClass.cs" />
+    <Compile Include="DBClass.cs" />
+    <Compile Include="EmailSendServiceClass.cs" />
+    <Compile Include="SchedulerClass.cs" />
     <Compile Include="SendEndWindow.xaml.cs">
       <DependentUpon>SendEndWindow.xaml</DependentUpon>
     </Compile>

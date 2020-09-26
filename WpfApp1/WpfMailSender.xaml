@@ -7,10 +7,42 @@
         xmlns:corlib="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="WpfMailSender" Height="400" Width="600" WindowStartupLocation="CenterScreen">
+<<<<<<< HEAD
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <PasswordBox Name="PasswordBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="0,0,0,10"/>
             <Button Name="ButtonSendMail" Content="Отправить E-Mail" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Click="ButtonSendMail_OnClick" Height="40"/>
         </StackPanel>
     </Grid>
+=======
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Создать"/>
+                <MenuItem Header="Открыть"/>
+                <MenuItem Header="Сохранить"/>
+                <Separator/>
+                <MenuItem Header="Выход"/>
+            </MenuItem>
+            <MenuItem Header="Сервис">
+                <MenuItem Header="Настройка"/>
+            </MenuItem>
+            <MenuItem Header="Справка">
+                <MenuItem Header="О программе"/>
+            </MenuItem>
+        </Menu>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem DockPanel.Dock="Right">
+                <ResizeGrip/>
+            </StatusBarItem>
+            <StatusBarItem>
+                <TextBlock Text="Состояние"/>
+            </StatusBarItem>
+        </StatusBar>
+        <Grid>
+
+        </Grid>
+
+    </DockPanel>
+>>>>>>> a56327e... Добавление классов
 </Window>

@@ -16,14 +16,12 @@ namespace WpfApp1
     /// </summary>
     public partial class WpfMailSender : Window
     {
-
-        
         public WpfMailSender()
         {
             InitializeComponent();
-
         }
 
+<<<<<<< HEAD
         private void ButtonSendMail_OnClick(object sender, RoutedEventArgs e)
         {
             List<string> listMails = new List<string> {"kanadei@mail.ru"};
@@ -52,5 +50,8 @@ namespace WpfApp1
                 }
             }
         }
+=======
+
+>>>>>>> a56327e... Добавление классов
     }
 }
