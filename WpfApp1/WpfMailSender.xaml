@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:WpfApp1"
         xmlns:corlib="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
+<<<<<<< HEAD
         Title="WpfMailSender" Height="400" Width="600" WindowStartupLocation="CenterScreen">
 <<<<<<< HEAD
     <Grid>
@@ -15,6 +16,9 @@
         </StackPanel>
     </Grid>
 =======
+=======
+        Title="WpfMailSender" Height="400" Width="600" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip">
+>>>>>>> 5c043d4... Кнопки
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Файл">
@@ -32,17 +36,57 @@
             </MenuItem>
         </Menu>
         <StatusBar DockPanel.Dock="Bottom">
-            <StatusBarItem DockPanel.Dock="Right">
-                <ResizeGrip/>
+            <StatusBarItem DockPanel.Dock="Right" Width="20">
             </StatusBarItem>
             <StatusBarItem>
                 <TextBlock Text="Состояние"/>
             </StatusBarItem>
         </StatusBar>
-        <Grid>
+        <ToolBarTray DockPanel.Dock="Top">
+            <ToolBar Height="30" Band="0" ToolBarTray.IsLocked="True">
+                <Label Content="Список адресатов" VerticalAlignment="Center"/>
+                <Button Name="ButtonAdd" Height="25" ToolTip="Добавить">
+                    <Image Source="Images/add.png"/>
+                </Button>
+                <Button Name="ButtonEdit" Height="25" ToolTip="Добавить">
+                    <Image Source="Images/edit.png"/>
+                </Button>
+                <Button Name="ButtonDelete" Height="25" ToolTip="Добавить">
+                    <Image Source="Images/del.png"/>
+                </Button>
+            </ToolBar>
+            <ToolBar Header="два" Band="1" BandIndex="2">
 
-        </Grid>
+            </ToolBar>
+            <ToolBar Header="еще" Band="0">
 
+            </ToolBar>
+            <ToolBar Band="1">
+                <Label Content="Список адресатов" VerticalAlignment="Center"/>
+                <Button Name="ButtonSmtpAdd" Height="25" ToolTip="Добавить">
+                    <Image Source="Images/add.png"/>
+                </Button>
+                <Button Name="ButtonSmtpEdit" Height="25" ToolTip="Добавить">
+                    <Image Source="Images/edit.png"/>
+                </Button>
+                <Button Name="ButtonSmtpDelete" Height="25" ToolTip="Добавить">
+                    <Image Source="Images/del.png"/>
+                </Button>
+            </ToolBar>
+        </ToolBarTray>
+        <TabControl>
+            <TabItem Header="Рассылка">
+
+
+
+            </TabItem>
+            <TabItem Header="Планировщик">
+            </TabItem>
+            <TabItem Header="Редактор писем">
+            </TabItem>
+            <TabItem Header="Статистика">
+            </TabItem>
+        </TabControl>
     </DockPanel>
 >>>>>>> a56327e... Добавление классов
 </Window>
