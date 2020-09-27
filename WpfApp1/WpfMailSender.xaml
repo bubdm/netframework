@@ -6,19 +6,7 @@
         xmlns:local="clr-namespace:WpfApp1"
         xmlns:corlib="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-<<<<<<< HEAD
-        Title="WpfMailSender" Height="400" Width="600" WindowStartupLocation="CenterScreen">
-<<<<<<< HEAD
-    <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <PasswordBox Name="PasswordBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="0,0,0,10"/>
-            <Button Name="ButtonSendMail" Content="Отправить E-Mail" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Click="ButtonSendMail_OnClick" Height="40"/>
-        </StackPanel>
-    </Grid>
-=======
-=======
         Title="WpfMailSender" Height="400" Width="600" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip">
->>>>>>> 5c043d4... Кнопки
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Файл">
@@ -88,5 +76,4 @@
             </TabItem>
         </TabControl>
     </DockPanel>
->>>>>>> a56327e... Добавление классов
 </Window>

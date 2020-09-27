@@ -20,8 +20,6 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
-
-<<<<<<< HEAD
         private void ButtonSendMail_OnClick(object sender, RoutedEventArgs e)
         {
             List<string> listMails = new List<string> {"kanadei@mail.ru"};
@@ -35,7 +33,7 @@ namespace WpfApp1
                     using (SmtpClient sc = new SmtpClient("smtp.gmail.com", 587))
                     {
                         sc.EnableSsl = true;
-                        sc.Credentials = new NetworkCredential("kanadeiar@gmail.com", PasswordBox.Password);
+                        sc.Credentials = new NetworkCredential("kanadeiar@gmail.com","");
                         try
                         {
                             sc.Send(mm);
@@ -50,8 +48,5 @@ namespace WpfApp1
                 }
             }
         }
-=======
-
->>>>>>> a56327e... Добавление классов
     }
 }
